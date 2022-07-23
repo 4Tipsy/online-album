@@ -1,0 +1,113 @@
+
+.main-menu {
+  z-index: 10;
+  transition: 0.25s ease-in-out;
+
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  background-color: var(--darker-main-color);
+  height: 100%;
+  width: 130px;
+
+  display: grid;
+  justify-items: center;
+  grid-template-rows: 1fr 4px 4.7fr 4px 5.5fr 4px 1.5fr; // 4px are for separators
+
+
+  // width for not-separators sections
+  > div:not(.main-menu-separator) {
+    width: 70%;
+  }
+  .main-menu-separator {
+    border: 2px solid var(--lighter-main-color);
+    width: 80%;
+  }
+  .main-menu-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 15px;
+    background-color: var(--lighter-main-color);
+    color: var(--not-that-white-color);
+    font-family: "Arvo Regular";
+
+    margin: 2vh 0;
+    height: 6.5vh;
+    cursor: pointer;
+
+    font-size: 18px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+
+  .account-and-acc-btns-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    margin: 2vh 0;
+  }
+  .account-section {
+    display: flex;
+    align-items: center;
+  }
+  .account-img {
+    border-radius: 50%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+
+    background-color: var(--not-that-white-color);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .nickname-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 1;
+    
+    .__nickname {
+      font-family: "Arvo Italic";
+      color: var(--not-that-white-color);
+
+      font-size: 24px;
+    }
+    .__separator {
+      width: 90%;
+      border: 1px solid var(--not-that-white-color);
+    }
+    .how-many-imgs {
+      font-family: "Arvo Italic";
+      color: var(--not-that-white-color);
+
+      font-size: 22px;
+    }
+  }
+}
+
+
+
+/* -------------------------
+make menu show off animation
+------------------------- */
+
+.main-menu-separator, .main-menu-btn, .nickname-section {
+  opacity: 0;
+
+  transition: 0.5s ease-in;
+}
+
+.main-menu:hover {
+  width: 400px !important;
+
+  .main-menu-separator, .main-menu-btn, .nickname-section {
+    opacity: 1;
+  }
+}

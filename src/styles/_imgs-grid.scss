@@ -1,0 +1,48 @@
+.imgs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-auto-rows: minmax(min-content, max-content);
+  
+  padding: 1vw;
+}
+
+.date-separator {
+  grid-column: span 4;
+  height: 10vw;
+
+  display: flex;
+  align-items: center;
+  position: relative;
+
+  .__line {
+    width: 100%;
+    border: 2px solid var(--not-that-white-color);
+  }
+  .__date {
+    background-color: var(--lighter-main-color);
+    color: var(--not-that-white-color);
+    font-family: "Arvo Italic";
+
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 15%;
+    padding: 0 2vw;
+  }
+}
+
+.ur-img-wrapper {
+  aspect-ratio: 1 / 1;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.ur-img {
+  aspect-ratio: 1 / 1;
+  width: 80%;
+
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center center;
+}
