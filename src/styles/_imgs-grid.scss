@@ -4,6 +4,24 @@
   grid-auto-rows: minmax(min-content, max-content);
   
   padding: 1vw;
+
+  overflow-y: auto;
+
+
+  // scrollbar customization
+  scrollbar-width: auto;
+  scrollbar-color: var(--darker-main-color) var(--lighter-main-color);
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--lighter-main-color);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--darker-main-color);
+    border-radius: 10px;
+  }
 }
 
 .date-separator {
@@ -37,6 +55,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+
 }
 .ur-img {
   aspect-ratio: 1 / 1;
@@ -45,4 +65,38 @@
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
+
+  position: relative;
+
+  .__name {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    overflow: hidden;
+    width: 100%;
+    height: 25%;
+
+    background-color: rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: var(--not-that-white-color);
+    font-family: "Arvo Italic";
+    font-size: 1.5vw;
+
+    opacity: 0;
+    transition: 0.2s;
+
+    > div { // inner text
+      width: 90%;
+      height: 90%;
+    }
+  }
+
+  &:hover .__name {
+    opacity: 1;
+  }
 }

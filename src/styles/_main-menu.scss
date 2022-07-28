@@ -13,12 +13,30 @@
 
   display: grid;
   justify-items: center;
-  grid-template-rows: 1fr 4px 4.7fr 4px 5.5fr 4px 1.5fr; // 4px are for separators
+  grid-template-rows: auto 4px auto 4px auto 4px auto; // 4px are for separators
 
 
-  // width for not-separators sections
+  .menu-arrow-section { // appears when menu is inactive
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+
+    .__arrow path {
+      fill: var(--lighter-main-color);
+    }
+    .__text {
+      color: var(--lighter-main-color);
+      font-size: large;
+      font-family: "Arvo BoldItalic";
+    }
+  }
+
+  .logo rect{
+    stroke: var(--not-that-white-color);
+  }
   > div:not(.main-menu-separator) {
-    width: 70%;
+    width: 70%; // width for not-separators sections
   }
   .main-menu-separator {
     border: 2px solid var(--lighter-main-color);
@@ -42,6 +60,10 @@
 
     &:hover {
       text-decoration: underline;
+    }
+
+    &.click-here-btn {
+      background-image: var(--highlight-gradient);
     }
   }
 
@@ -72,22 +94,20 @@
     flex-direction: column;
     align-items: center;
     flex-grow: 1;
-    
-    .__nickname {
-      font-family: "Arvo Italic";
-      color: var(--not-that-white-color);
 
-      font-size: 24px;
-    }
     .__separator {
       width: 90%;
       border: 1px solid var(--not-that-white-color);
     }
-    .how-many-imgs {
+    .how-many-imgs, .__nickname {
       font-family: "Arvo Italic";
       color: var(--not-that-white-color);
 
       font-size: 22px;
+    }
+    .__nickname.logged-in { // when user is logged in
+      font-family: Roboto;
+      font-size: 24px;
     }
   }
 }
@@ -98,16 +118,24 @@
 make menu show off animation
 ------------------------- */
 
-.main-menu-separator, .main-menu-btn, .nickname-section {
+.main-menu {
+  overflow: hidden; /**/
+}
+.main-menu-separator, .main-menu-btn, .nickname-section, .logo {
   opacity: 0;
 
-  transition: 0.5s ease-in;
+  transition: 0.16s ease-in;
 }
 
 .main-menu:hover {
   width: 400px !important;
 
-  .main-menu-separator, .main-menu-btn, .nickname-section {
+  .main-menu-separator, .main-menu-btn, .nickname-section, .logo {
     opacity: 1;
+    transition: 0.5s ease-in;
+  }
+
+  .menu-arrow-section {
+    display: none;
   }
 }

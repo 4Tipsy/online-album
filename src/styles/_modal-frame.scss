@@ -1,0 +1,116 @@
+
+.modal-frame-wrapper {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 20;
+
+  transform: scale(0);
+}
+.modal-frame-wrapper._active {
+  transform: scale(1);
+}
+
+
+
+.modal-frame:before {
+  // annotation how to close the modal frame
+  content: "[tap outside to close]";
+  font-family: "Arvo Regular";
+  font-size: small;
+  color: var(--not-that-white-color);
+
+  position: absolute;
+  right: 1%;
+  top: 0;
+  transform: translateY(-120%);
+}
+.modal-frame {
+  position: relative;
+
+  width: 480px;
+  height: 80%;
+
+  background-color: var(--darker-main-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+
+  > div { // for not-separator div's
+    width: 70%;
+  }
+}
+
+.modal-frame-separator {
+  border: 2px solid var(--lighter-main-color);
+  width: 80% !important;
+}
+.modal-frame-input {
+  width: calc(100% - 2vh*2);
+  height: 6.5vh;
+  margin: 1.5vh 0;
+  padding: 0 2vh;
+
+  border: 2px solid var(--darker-main-color);
+  background-color: var(--lighter-main-color);
+  color: var(--not-that-white-color);
+  font-family: "Arvo Italic";
+
+  outline: 0;
+}
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 15px;
+  background-image: var(--highlight-gradient);
+  color: var(--not-that-white-color);
+  font-family: "Arvo Regular";
+
+  margin: 2vh 0;
+  height: 6.5vh;
+  cursor: pointer;
+
+  font-size: 18px;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.after-submit-btn-text {
+  text-align: center;
+  font-family: "Arvo Regular";
+  color: var(--not-that-white-color);
+
+  margin: 0.4vw 0;
+}
+.__forgot-password, .__log-in, .__register {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.__confirm-e-mail-wrapper {
+  display: flex;
+  justify-content: flex-end;
+
+  .__confirm-e-mail {
+    align-self: flex-end;
+    color: var(--not-that-white-color);
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+.__registration-errors {
+  color: var(--error-color)
+}

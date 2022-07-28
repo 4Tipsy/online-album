@@ -5,6 +5,7 @@
   --darker-main-color: #202020;
   --not-that-white-color: #DADADA;
   --highlight-gradient: linear-gradient(177deg, #CBCF0C 4.59%, #A21C1C 119.34%);
+  --error-color: #fd4444;
 }
 body {
   margin: 0;
@@ -21,5 +22,15 @@ body {
   grid-template-columns: 130px/*<== width of inactive menu*/ 1fr;
 }
 
+.highlighted-text {
+  background: var(--highlight-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
+
 @import 'main-menu';
 @import 'imgs-grid';
+@import 'modal-frame';

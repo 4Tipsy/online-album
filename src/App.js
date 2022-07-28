@@ -1,22 +1,26 @@
-import React from 'react';
-import {DateSeparator, UrImg} from './components/ImgGridComponents';
+import React, {useState} from 'react';
+
+import ImgsGridInner from './components/ImgsGridInner';
 import MainMenu from './components/MainMenu';
+import ModalFrame from './components/ModalFrame';
 
-
-let test = ['../dataBase/zim.jpg','../dataBase/example_image.jpg','../dataBase/76648.png']
 
 
 function App () {
+
+  const [modalFrameActive, setModalFrameActive] = useState(false);
+
+
   return (
     <>
-    <MainMenu />
+    <MainMenu isUserLoggedIn={true}/>
+
     <div className='imgs-grid-gap'></div>
     <div className='imgs-grid'>
-      <DateSeparator />
-      {
-        test.map( (el) => <UrImg imgSrc={el}/> )
-      }
+      <ImgsGridInner />
     </div>
+
+    <ModalFrame active={true} whichFrame={'register'}/>
     </>
   )
 }
