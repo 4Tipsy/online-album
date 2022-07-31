@@ -6,8 +6,9 @@ import axios from "axios";
 function ImgsGridInner() {
 
   async function fetchImgs() {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/photos')
-    setImgs( response.data.slice(0, 10) )
+
+    const response = await axios.get('http://localhost:5000/get-imgs')
+    setImgs( response.data )
   }
 
 
@@ -22,8 +23,8 @@ function ImgsGridInner() {
   return (
     <>
       {imgs === 'loading'
-      ? <h1>loading...</h1>
-      : imgs.concat().map(el => <UrImg imgUrl={el.url} imgName={el.title}/>)}
+      ? <h1 style={{color: '#fff'}}>loading...</h1>
+      : imgs.concat().map(el => <UrImg imgUrl={el.src} imgName={el.name} key={el.name}/>)}
     </>
   )
 }
@@ -38,7 +39,7 @@ function DateSeparator(props) {
   )
 }
 
-function UrImg( {imgUrl, imgName} ) {
+function UrImg({imgUrl, imgName}) {
   return (
     <div className='ur-img-wrapper'>
       <div className='ur-img' 

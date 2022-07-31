@@ -1,4 +1,8 @@
-
+/*
+its kinda similar to <SettingsFrame/>
+so... if u gonna change smth here
+do not forget to change <SettingsFrame/> too
+*/
 .modal-frame-wrapper {
   width: 100vw;
   height: 100vh;
@@ -47,7 +51,7 @@
   align-items: center;
   justify-content: space-evenly;
 
-  > div { // for not-separator div's
+  > div, button { // for not-separator div's
     width: 70%;
   }
 }
@@ -69,13 +73,19 @@
 
   outline: 0;
 }
+
 .submit-btn {
+  background-image: var(--highlight-gradient);
+}
+.submit-btn, .other-btn {
   display: flex;
   align-items: center;
   justify-content: center;
 
   border-radius: 15px;
-  background-image: var(--highlight-gradient);
+  border: none;
+  
+  background-color: var(--lighter-main-color);
   color: var(--not-that-white-color);
   font-family: "Arvo Regular";
 
@@ -88,8 +98,12 @@
   &:hover {
     text-decoration: underline;
   }
+  &:active {
+    filter: brightness(71%);
+  }
 }
-.after-submit-btn-text {
+
+.after-submit-btn-text { // aka just modal frame text...
   text-align: center;
   font-family: "Arvo Regular";
   color: var(--not-that-white-color);
@@ -100,17 +114,7 @@
   text-decoration: underline;
   cursor: pointer;
 }
-.__confirm-e-mail-wrapper {
-  display: flex;
-  justify-content: flex-end;
-
-  .__confirm-e-mail {
-    align-self: flex-end;
-    color: var(--not-that-white-color);
-    text-decoration: underline;
-    cursor: pointer;
-  }
-}
 .__registration-errors {
-  color: var(--error-color)
+  color: var(--error-color);
+  min-height: 8%;
 }
