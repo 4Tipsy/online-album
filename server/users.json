@@ -1,7 +1,20 @@
-{
-  "4Tipsy": {
-    "email":"justmail098765@gmail.com",
-    "password": "qwerty",
-    "personal-folder": "imgs-4tipsy"
-  }
-}
+[
+	{
+		"nickname": "qwerty",
+		"email": "just@mail.com",
+		"password": "qwerty",
+		"user-folder": "users-imgs-folders/imgs__qwerty"
+	},
+	{
+		"nickname": "gg",
+		"email": "45698765@gmail.com",
+		"password": "qwerty",
+		"user-folder": "users-imgs-folders/imgs__gg"
+	},
+	{
+		"nickname": "ggg",
+		"email": "45698765g@gmail.com",
+		"password": "qwerty",
+		"user-folder": "users-imgs-folders/imgs__ggg"
+	}
+]

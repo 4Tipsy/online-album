@@ -5,7 +5,7 @@ import React, {useState} from "react";
 function Login({setActive}) {
   
 
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
 
@@ -26,7 +26,7 @@ function Login({setActive}) {
       <div className='modal-frame-separator'/>
 
       <div>
-        <input className='modal-frame-input' type='text' placeholder='login' value={login} onChange={ (e) => {setLogin(e.currentTarget.value)} }/>
+        <input className='modal-frame-input' type='text' placeholder='e-mail' value={email} onChange={ (e) => {setEmail(e.currentTarget.value)} }/>
         <input className='modal-frame-input' type='password' placeholder='password'  value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
       </div>
 

@@ -1,9 +1,19 @@
-import React from "react";
-
+import React, {useState} from "react";
+import axios from "axios";
+import validator from "validator";
 
 
 function Register({setActive}) {
   
+  const [email, setEmail] = useState('');
+  const [nickname, setNickname] = useState('');
+  const [password, setPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [error, setError] = useState('');
+
+
+
+
 
   return (
     <>
@@ -16,24 +26,95 @@ function Register({setActive}) {
       <div className='modal-frame-separator'/>
 
       <div>
-        <input className='modal-frame-input' type='text' placeholder='e-mail'/>
-        <input className='modal-frame-input' type='text' placeholder='nickname'/>
-        <input className='modal-frame-input' type='password' placeholder='password'/>
-        <input className='modal-frame-input' type='password' placeholder='repeat password'/>
+        <input className='modal-frame-input' type='text' placeholder='e-mail' value={email} onChange={ (e) => {setEmail(e.currentTarget.value)} }/>
+        <input className='modal-frame-input' type='text' placeholder='nickname' value={nickname} onChange={ (e) => {setNickname(e.currentTarget.value)} }/>
+        <input className='modal-frame-input' type='password' placeholder='password' value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
+        <input className='modal-frame-input' type='password' placeholder='repeat password' value={repeatPassword} onChange={ (e) => {setRepeatPassword(e.currentTarget.value)} }/>
       </div>
 
     
-      <div className='submit-btn'>Register</div>
+      <button className='submit-btn' onClick={ () => {handleBtnClick()} }>Register</button>
 
       <div className='after-submit-btn-text'>Already have an account? <span className='__log-in' onClick={ () => {setActive('log-in')} }>Log in</span></div>
-      <div className='after-submit-btn-text __registration-errors'>Passwords do not match!</div>
-
+      <div className='after-submit-btn-text __registration-errors'
+      style={error === 'User was add successfully' ? {color: '#28D328'} : {}}>{error}</div>
       
     </>
   )
+
+
+
+
+  async function handleBtnClick() { // aka handleRegistration
+
+    // check if the entered data is correct
+    if (email.length === 0 || nickname.length === 0 || password.length === 0 || repeatPassword.length === 0) {
+      setError('fill all the inputs')
+
+    } else if (! validator.isEmail(email) ) {
+      setError('e-mail is incorrect')
+
+    } else if (password !== repeatPassword) {
+      setError('password do not match')
+
+    } else if (password.length < 5) {
+      setError('the minimal length of password is 6')
+
+    } else if (! /^[a-zA-Z0-9-]+$/.test(password)) {
+      setError('password can only contain eng letters and numbers')
+
+    } else if (password !== repeatPassword) {
+      setError('password do not match')
+
+    } else /* if everything is ok */ {
+
+      // grab data to one obj
+      let dataToSend = {}
+      dataToSend['email'] = email
+      dataToSend['nickname'] = nickname
+      dataToSend['password'] = password
+
+      try {
+        // make a request to server
+        const response = await axios.post( 
+          window.SERVER_ADDRESS,
+          JSON.stringify(dataToSend),
+          { headers: {'Content-Type': 'application/json'} } 
+        )
+
+
+        // check if server returned 200 status
+        if (response.status !== 200) {
+          setError('Server error: try later')
+          console.warn(`resp.status= ${response.status}`)
+
+
+        // if everything was ok, but registration failed (server will return reason in resp.data)
+        } else if (response.data !== 'User was add successfully') {
+          setError(response.data)
+
+
+        // if user was registered!!!
+        } else if (response.data === 'User was add successfully') {
+          setError('')
+
+
+        // if something unexpected happened
+        } else {
+          setError('Unexpected error: try later')
+        }
+
+      // if request failed
+      } catch (error) {
+        console.error(error)
+        setError('Connection error: try later')
+      }
+    }
+  }
+
+
+
 }
-
-
 
 
 
