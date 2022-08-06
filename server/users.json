@@ -1,20 +1,8 @@
 [
 	{
 		"nickname": "qwerty",
-		"email": "just@mail.com",
+		"email": "qwerty@mail.com",
 		"password": "qwerty",
-		"user-folder": "users-imgs-folders/imgs__qwerty"
-	},
-	{
-		"nickname": "gg",
-		"email": "45698765@gmail.com",
-		"password": "qwerty",
-		"user-folder": "users-imgs-folders/imgs__gg"
-	},
-	{
-		"nickname": "ggg",
-		"email": "45698765g@gmail.com",
-		"password": "qwerty",
-		"user-folder": "users-imgs-folders/imgs__ggg"
+		"user-folder": "public/users-imgs-folders/imgs__qwerty"
 	}
 ]

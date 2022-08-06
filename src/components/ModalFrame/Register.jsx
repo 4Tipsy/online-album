@@ -37,7 +37,7 @@ function Register({setActive}) {
 
       <div className='after-submit-btn-text'>Already have an account? <span className='__log-in' onClick={ () => {setActive('log-in')} }>Log in</span></div>
       <div className='after-submit-btn-text __registration-errors'
-      style={error === 'User was add successfully' ? {color: '#28D328'} : {}}>{error}</div>
+      style={error === 'user was add successfully' ? {color: '#28D328'} : {}}>{error}</div>
       
     </>
   )
@@ -77,7 +77,7 @@ function Register({setActive}) {
       try {
         // make a request to server
         const response = await axios.post( 
-          window.SERVER_ADDRESS,
+          window.SERVER_ADDRESS+'/register',
           JSON.stringify(dataToSend),
           { headers: {'Content-Type': 'application/json'} } 
         )
@@ -90,13 +90,13 @@ function Register({setActive}) {
 
 
         // if everything was ok, but registration failed (server will return reason in resp.data)
-        } else if (response.data !== 'User was add successfully') {
+        } else if (response.data !== 'user was add successfully') {
           setError(response.data)
 
 
         // if user was registered!!!
-        } else if (response.data === 'User was add successfully') {
-          setError('')
+        } else if (response.data === 'user was add successfully') {
+          setError(response.data)
 
 
         // if something unexpected happened

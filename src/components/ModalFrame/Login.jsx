@@ -1,5 +1,6 @@
 import React, {useState} from "react";
-
+import axios from "axios";
+import validator from "validator";
 
 
 function Login({setActive}) {
@@ -7,8 +8,7 @@ function Login({setActive}) {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-
-
+  const [error, setError] = useState('');
 
 
 
@@ -30,12 +30,13 @@ function Login({setActive}) {
         <input className='modal-frame-input' type='password' placeholder='password'  value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
       </div>
 
-      <button className='submit-btn'>Log in</button>
+      <button className='submit-btn' onClick={ () => {handleBtnClick()} }>Log in</button>
 
       <div>
         <div className='after-submit-btn-text __forgot-password'>Forgot your password?</div>
         <div className='after-submit-btn-text'>Do not have an account? <span className='__register' onClick={ () => {setActive('register')} }>Register</span></div>
       </div>
+      <div className='after-submit-btn-text __registration-errors' style={{minHeight: '3%'}}>{error}</div>
 
       <div className='modal-frame-separator'/>
 
@@ -45,6 +46,72 @@ function Login({setActive}) {
       </div>
     </>
   )
+
+
+
+
+  async function handleBtnClick() { // aka handleRegistration
+
+    // check if the entered data is correct
+    if (email.length === 0 || password.length === 0) {
+      setError('fill all the inputs')
+
+    } else if (! validator.isEmail(email) ) {
+      setError('e-mail is incorrect')
+
+    } else if (password.length < 5) {
+      setError('the minimal length of password is 6')
+
+    } else if (! /^[a-zA-Z0-9-]+$/.test(password)) {
+      setError('password can only contain eng letters and numbers')
+
+    } else /* if everything is ok */ {
+
+      // grab data to one obj
+      let dataToSend = {}
+      dataToSend['email'] = email
+      dataToSend['password'] = password
+
+      try {
+        // make a request to server
+        const response = await axios.post( 
+          window.SERVER_ADDRESS+'/login',
+          JSON.stringify(dataToSend),
+          { headers: {'Content-Type': 'application/json'} } 
+        )
+
+
+        // check if server returned 200 status
+        if (response.status !== 200) {
+          setError('Server error: try later')
+          console.warn(`resp.status= ${response.status}`)
+
+
+        // if everything was ok, but login failed (server will return reason in resp.data)
+        } else if (response.data.error !== 'none') {
+          setError(response.data.error)
+
+
+        // if user was logged in!!!
+        } else if (response.data.error === 'none') {
+          setError('')
+
+
+          localStorage.setItem('auth-token', response.data['auth-token'])
+
+
+        // if something unexpected happened
+        } else {
+          setError('Unexpected error: try later')
+        }
+
+      // if request failed
+      } catch (error) {
+        console.error(error)
+        setError('Connection error: try later')
+      }
+    }
+  }
 }
 
 

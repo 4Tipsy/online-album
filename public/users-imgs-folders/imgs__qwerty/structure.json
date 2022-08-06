@@ -3,18 +3,18 @@
     "name": "amogus.png",
     "date": "91/07/2022",
     "tags": [],
-    "src": "users-imgs-folders/example/amogus.png"
+    "src": "public/users-imgs-folders/example/amogus.png"
   },
   {
     "name": "mipo_bizare_adventure.webp",
     "date": "91/07/2022",
     "tags": [],
-    "src": "users-imgs-folders/example/mipo_bizare_adventure.webp"
+    "src": "public/users-imgs-folders/example/mipo_bizare_adventure.webp"
   },
   {
     "name": "monke_lol.webp",
     "date": "91/07/2022",
     "tags": [],
-    "src": "users-imgs-folders/example/monke_lol.webp"
+    "src": "public/users-imgs-folders/example/monke_lol.webp"
   }
 ]
