@@ -24,18 +24,19 @@ body {
 
 
 @mixin highlighted-text {
-    background: var(--highlight-gradient);
+  background: var(--highlight-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
 }
 .highlighted-text {
-  @include highlighted-text
+  @include highlighted-text;
 }
 
 
 @import 'main-menu';
 @import 'imgs-grid';
 @import 'modal-frame';
-@import 'settings-frame'
+@import 'settings-frame';
+@import 'download-frame';

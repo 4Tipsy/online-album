@@ -110,11 +110,15 @@ do not forget to change <SettingsFrame/> too
 
   margin: 0.4vw 0;
 }
-.__forgot-password, .__log-in, .__register {
-  text-decoration: underline;
-  cursor: pointer;
+.modal-frame {
+  
+  .__forgot-password, .__log-in, .__register {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  .__registration-errors {
+    min-height: 8%;
+    color: var(--error-color);
+  }
 }
-.__registration-errors {
-  min-height: 8%;
-  color: var(--error-color);
-}
+

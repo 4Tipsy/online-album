@@ -27,7 +27,7 @@ function Login({setActive}) {
 
       <div>
         <input className='modal-frame-input' type='text' placeholder='e-mail' value={email} onChange={ (e) => {setEmail(e.currentTarget.value)} }/>
-        <input className='modal-frame-input' type='password' placeholder='password'  value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
+        <input className='modal-frame-input' type='password' placeholder='password' value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
       </div>
 
       <button className='submit-btn' onClick={ () => {handleBtnClick()} }>Log in</button>
@@ -81,14 +81,9 @@ function Login({setActive}) {
         )
 
 
-        // check if server returned 200 status
-        if (response.status !== 200) {
-          setError('Server error: try later')
-          console.warn(`resp.status= ${response.status}`)
 
-
-        // if everything was ok, but login failed (server will return reason in resp.data)
-        } else if (response.data.error !== 'none') {
+        // if everything was ok, but login failed (server will return reason in resp.data.error)
+        if (response.data.error !== 'none') {
           setError(response.data.error)
 
 

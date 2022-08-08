@@ -6,8 +6,8 @@ import express from 'express'
 import bodyParser from 'body-parser'
 import jwt from 'jsonwebtoken'
 import crypto from 'crypto'
+import Busboy from 'busboy'
 
-import authenticateJWT from './auth.mjs'
 
 
 global.SERVER_PORT = 5000
@@ -50,7 +50,7 @@ app.get('/get-imgs', (request, response) => {
   // verify the token and send the imgs
     const authHeader = request.headers.authorization
     const token = authHeader.split(' ')[1]
-    const {nickname, 'user-folder': userFolder} = jwt.verify(token, global.JWT_SECRET);
+    const {nickname, 'user-folder': userFolder} = jwt.verify(token, global.JWT_SECRET)
 
 
     // if nickname and user-folder do not match
@@ -168,6 +168,34 @@ app.post('/login', (request, response) => {
   }
 })
 
+
+
+app.post('/upload-img', (request, response) => {
+
+  console.log(`--> POST: /upload-img -- at ${new Date()}`)
+
+  try {
+    // verify the token
+    const authHeader = request.headers.authorization
+    const token = authHeader.split(' ')[1]
+    const {nickname, 'user-folder': userFolder} = jwt.verify(token, global.JWT_SECRET)
+
+
+    // uploading the image
+    let busboy = Busboy({headers: request.headers})
+    busboy.on('file', (fieldname, file, filename, encoding, mimetype) => {
+      console.log(fieldname, file, filename, encoding, mimetype, 'logged')
+
+      file.pipe(fs.createWriteStream('/upload'))
+    })
+    console.log(request.body);
+
+  // if server-side error
+  } catch (error) {
+    response.send({'error': error})
+    console.log(`   response: ${error} \n`)
+  }
+})
 
 
 

@@ -5,7 +5,7 @@ function MainMenu ({isUserLoggedIn, setModalActive, setSettingsActive}) {
 
 
   return (
-    <div className='main-menu' >
+    <div className='main-menu'>
 
     
       <svg className='logo' width="185" height="52" viewBox="0 0 185 52" fill="none" xmlns="http://www.w3.org/2000/svg">

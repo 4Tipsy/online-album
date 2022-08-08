@@ -58,7 +58,7 @@ function ImgsGridInner() {
         : status === "success"
         ? imgs.concat().map(img => <UrImg src={img.src} name={img.name} key={img.name}/>)
 
-        : <div className='imgs-grid-massage'> <TextMassage>Network error: try later</TextMassage> </div>
+        : <div className='imgs-grid-massage'> <TextMassage>Network error: <br/>try later</TextMassage> </div>
       }
 
     </>
