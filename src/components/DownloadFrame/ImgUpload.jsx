@@ -75,19 +75,18 @@ function ImgUpload({currentImg}) {
       setError('')
 
       // grab data to FormData
+
       let dataToSend = new FormData()
       dataToSend.append('file', currentImg)
-
       dataToSend.append('name', imgName)
       dataToSend.append('date', imgDate)
-      dataToSend.append('tags', imgTags.split(' '))
-      /*
-        let imgAbout = {}
-        imgAbout["name"] = imgName
-        imgAbout["date"] = imgDate
-        imgAbout["tags"] = imgTags.split(' ')
-      dataToSend.append('imgAbout', JSON.stringify(imgAbout) )*/
+      dataToSend.append('tags', imgTags)
 
+      /*let dataToSend = {}
+      dataToSend["name"] = imgName
+      dataToSend["date"] = imgDate
+      dataToSend["tags"] = imgTags.split(' ')
+      dataToSend["file"] = currentImg*/
 
       // get auth token
       const token = localStorage.getItem('auth-token')

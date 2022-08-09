@@ -1,7 +1,17 @@
+# USED ONLY FROM IDE
+#
+# it's just a script which help me to test my app
+# yep, i should use special libraries 4 it, by i dunno how to use them))
+# ----------------------------------------------------------------------
+# deletes all the accounts(and their folders of course)
+# but don't touch [example] folder, cuz it required to create new accounts
+# in other words,, [example] folder is a part of app
+
+
 import os, json, shutil
 
 path_to_users_json = '/home/qwerty/my-projects/online-album/server/users.json'
-path_to_users_folders = '/home/qwerty/my-projects/online-album/users-imgs-folders'
+path_to_users_folders = '/home/qwerty/my-projects/online-album/public/users-imgs-folders'
 
 
 

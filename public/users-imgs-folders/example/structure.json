@@ -6,15 +6,45 @@
     "src": "users-imgs-folders/example/amogus.png"
   },
   {
-    "name": "mipo_bizare_adventure.webp",
+    "name": "example1.png",
     "date": "91/07/2022",
     "tags": [],
-    "src": "users-imgs-folders/example/mipo_bizare_adventure.webp"
+    "src": "users-imgs-folders/example/example1.png"
   },
   {
-    "name": "monke_lol.webp",
+    "name": "example2.jpg",
     "date": "91/07/2022",
     "tags": [],
-    "src": "users-imgs-folders/example/monke_lol.webp"
+    "src": "users-imgs-folders/example/example2.jpg"
+  },
+  {
+    "name": "example3.png",
+    "date": "91/07/2022",
+    "tags": [],
+    "src": "users-imgs-folders/example/example3.png"
+  },
+  {
+    "name": "example4.webp",
+    "date": "91/07/2022",
+    "tags": [],
+    "src": "users-imgs-folders/example/example4.webp"
+  },
+  {
+    "name": "example5.jpg",
+    "date": "91/07/2022",
+    "tags": [],
+    "src": "users-imgs-folders/example/example5.jpg"
+  },
+  {
+    "name": "example6.jpg",
+    "date": "91/07/2022",
+    "tags": [],
+    "src": "users-imgs-folders/example/example6.jpg"
+  },
+  {
+    "name": "example7.jpg",
+    "date": "91/07/2022",
+    "tags": [],
+    "src": "users-imgs-folders/example/example7.jpg"
   }
 ]

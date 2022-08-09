@@ -69,6 +69,8 @@
 
   position: relative;
 
+  border: 1px solid var(--darker-main-color);
+
   .__name {
     position: absolute;
     bottom: 0;
