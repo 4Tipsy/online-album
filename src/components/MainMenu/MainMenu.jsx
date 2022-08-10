@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function MainMenu ({isUserLoggedIn, setModalActive, setSettingsActive}) {
+function MainMenu ({userInfo, setModalActive, setSettingsActive}) {
 
 
   return (
@@ -14,7 +14,7 @@ function MainMenu ({isUserLoggedIn, setModalActive, setSettingsActive}) {
         <rect x="95.5" y="10.5" width="89" height="36"/>
       </svg>
       <div className='main-menu-separator'/>
-      <AccountSection isUserLoggedIn={isUserLoggedIn} setModalActive={setModalActive} />
+      <AccountSection userInfo={userInfo} setModalActive={setModalActive} />
       <div className='main-menu-separator'/>
       <div className='btns-section'>
         <div className='main-menu-btn'>_</div>
@@ -38,23 +38,36 @@ function MainMenu ({isUserLoggedIn, setModalActive, setSettingsActive}) {
 }
 
 
-function AccountSection ({isUserLoggedIn, setModalActive}) {
+function AccountSection ({userInfo, setModalActive}) {
   return (
     <div className='account-and-acc-btns-section'>
       <div className='account-section'>
-        <div className='account-img'/>
+        <div className='account-img' style={{backgroundImage: "url("+userInfo.profileImg+")"}}/>
         <div className='nickname-section'>
-          <div className={isUserLoggedIn ? '__nickname logged-in' : '__nickname'}>4Tipsy</div>
+          <div className={userInfo.nickname !== '$no-user' ? '__nickname logged-in' : '__nickname'}>{userInfo.nickname}</div>
           <div className='__separator'/>
-          <div className='how-many-imgs'>$no-user</div>
+          <div className='how-many-imgs'>{userInfo.imgsAmount}</div>
         </div>
       </div>
       <div className='account-btns-section'>
-        <div className='main-menu-btn' onClick={ () => {setModalActive('register')} }>Register</div>
-        <div className='main-menu-btn' onClick={ () => {setModalActive('log-in')} }>Log-in</div>
+        {userInfo.userIsLogged
+        ? <div className='main-menu-btn' onClick={ () => {setModalActive('register')} }>---</div>
+        : <div className='main-menu-btn' onClick={ () => {setModalActive('register')} }>Register</div>
+        }
+        {userInfo.userIsLogged
+        ? <div className='main-menu-btn' onClick={ () => {handleLogOut()} }>Log-out</div>
+        : <div className='main-menu-btn' onClick={ () => {setModalActive('log-in')} }>Log-in</div>
+        }
       </div>
     </div>
   )
 }
+
+function handleLogOut() {
+  localStorage.removeItem('auth-token')
+  window.location.reload()
+}
+
+
 
 export default MainMenu;

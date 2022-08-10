@@ -108,13 +108,16 @@
 
 .imgs-grid-massage {
   position: absolute;
-  top: 35%;
+  top: 32%;
   left: 50%;
   transform: translateX(-50%);
 
   display: flex;
   flex-direction: column;
 
+  > * {
+    margin-bottom: 8vh;
+  }
 
   .text-massage {
     text-align: center;
@@ -127,9 +130,11 @@
 
     .__text{
       text-align: center;
-      font-family: "Arvo Regular";
+      font-family: "Arvo Bold";
       color: var(--not-that-white-color);
       font-size: xx-large;
+
+      margin: 0 1vw;
     }
     .__line {
       margin: 0.2vw 0;

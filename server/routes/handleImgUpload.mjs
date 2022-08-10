@@ -13,7 +13,7 @@ const handleImgUpload = (request, response) => {
     
     const authHeader = request.headers.authorization
     const token = authHeader.split(' ')[1]
-    // var cuz i need this variable outside this block
+    // "var" cuz i need this variable outside this block
     var {nickname, 'user-folder': userFolder} = jwt.verify(token, global.JWT_SECRET)
 
   } catch (error) {

@@ -1,4 +1,4 @@
-// Require packages and set the port
+// import packages
 import express from 'express'
 import bodyParser from 'body-parser'
 import crypto from 'crypto'
@@ -42,8 +42,8 @@ function getHashedPassword(password) {
 
 
 
-// getting imgs
-app.get('/get-imgs', handleUserEntry)
+// user entry
+app.get('/user-entry', handleUserEntry)
 
 
 // user registration

@@ -57,7 +57,7 @@ function Register({setActive}) {
     } else if (password !== repeatPassword) {
       setError('password do not match')
 
-    } else if (password.length < 5) {
+    } else if (password.length < 6) {
       setError('the minimal length of password is 6')
 
     } else if (! /^[a-zA-Z0-9-]+$/.test(password)) {
@@ -70,9 +70,9 @@ function Register({setActive}) {
 
       // grab data to one obj
       let dataToSend = {}
-      dataToSend['email'] = email
-      dataToSend['nickname'] = nickname
-      dataToSend['password'] = password
+      dataToSend.email = email
+      dataToSend.nickname = nickname
+      dataToSend.password = password
 
       try {
         // make a request to server

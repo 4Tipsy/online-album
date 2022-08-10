@@ -1,14 +1,8 @@
 [
-    {
-        "nickname": "qwerty",
-        "email": "qwerty@mail.gg",
-        "password": "qwerty",
-        "user-folder": "imgs__qwerty"
-    },
-    {
-        "nickname": "tester",
-        "email": "tes@ter.gg",
-        "password": "123456",
-        "user-folder": "imgs__tester"
-    }
+	{
+		"nickname": "qwerty",
+		"email": "qwerty@mail.com",
+		"password": "qwerty",
+		"user-folder": "imgs__qwerty"
+	}
 ]

@@ -81,6 +81,7 @@
   }
   .account-img {
     border-radius: 50%;
+    border: 1px solid var(--not-that-white-color);
     height: 80px;
     aspect-ratio: 1 / 1;
 
@@ -106,7 +107,7 @@
       font-size: 22px;
     }
     .__nickname.logged-in { // when user is logged in
-      font-family: Roboto;
+      font-family: "Arvo Bold";
       font-size: 24px;
     }
   }

@@ -59,34 +59,35 @@ function ImgUpload({currentImg}) {
 
     // check if the entered data is correct
     
-    // if all the inputs are filled
     if (imgName.length === 0 || imgDate.length === 0 || imgDate.indexOf('_') !== -1) {
       setError('fill all the inputs')
 
-    // if some tags do not start from "#"
+    } else if (! /^[a-zA-Z0-9 \- _ ().)]+$/.test(imgName)) {
+      setError('please use only eng letters,  numbers and "-",  "_",  "." symbols in image name')
+
+    } else if (imgTags.length > 0 && !/^[a-zA-Z0-9 /s #]+$/.test(imgTags) ) {
+      setError('use only eng letters, numbers and "#" symbol in image tags(tags separated with spaces)')
+
     } else if (imgTags.split(' ').find(j => j[0]!=='#')) {
       setError('not all of your tags start from "#"')
 
-    // if image has no extension
     } else if (imgName.indexOf('.') === -1) {
       setError('it seems like you have not set an extension to the image')
+
+    // if imgName contain spaces, it shouldn't cuz it wont be displayed(some troubles with link to such ones)
+    } else if (imgName.indexOf(' ') !== -1) {
+      setError('it seems like you have not set an extension to the image')
+    
 
     } else /* if everything is ok */ {
       setError('')
 
       // grab data to FormData
-
       let dataToSend = new FormData()
       dataToSend.append('file', currentImg)
       dataToSend.append('name', imgName)
       dataToSend.append('date', imgDate)
       dataToSend.append('tags', imgTags)
-
-      /*let dataToSend = {}
-      dataToSend["name"] = imgName
-      dataToSend["date"] = imgDate
-      dataToSend["tags"] = imgTags.split(' ')
-      dataToSend["file"] = currentImg*/
 
       // get auth token
       const token = localStorage.getItem('auth-token')

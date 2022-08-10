@@ -91,10 +91,10 @@ function Login({setActive}) {
         } else if (response.data.error === 'none') {
           setError('')
 
-
           localStorage.setItem('auth-token', response.data['auth-token'])
+          window.location.reload()
 
-
+          
         // if something unexpected happened
         } else {
           setError('Unexpected error: try later')
