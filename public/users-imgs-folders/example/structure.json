@@ -1,50 +1,44 @@
 [
   {
-    "name": "amogus.png",
-    "date": "91/07/2022",
-    "tags": [],
-    "src": "users-imgs-folders/example/amogus.png"
-  },
-  {
     "name": "example1.png",
-    "date": "91/07/2022",
-    "tags": [],
+    "date": "12/08/2022",
+    "tags": ["#ANDREY-SANSTRAAAAIK"],
     "src": "users-imgs-folders/example/example1.png"
   },
   {
     "name": "example2.jpg",
-    "date": "91/07/2022",
-    "tags": [],
+    "date": "12/08/2022",
+    "tags": ["#best-ava"],
     "src": "users-imgs-folders/example/example2.jpg"
   },
   {
-    "name": "example3.png",
+    "name": "example3.jpg",
     "date": "91/07/2022",
     "tags": [],
-    "src": "users-imgs-folders/example/example3.png"
+    "src": "users-imgs-folders/example/example3.jpg"
   },
   {
     "name": "example4.webp",
-    "date": "91/07/2022",
-    "tags": [],
+    "date": "12/08/2022",
+    "tags": ["#a", "#lot", "#of", "#tags"],
     "src": "users-imgs-folders/example/example4.webp"
   },
   {
-    "name": "example5.jpg",
-    "date": "91/07/2022",
-    "tags": [],
-    "src": "users-imgs-folders/example/example5.jpg"
+    "name": "example5.webp",
+    "date": "12/08/2022",
+    "tags": ["#menacing"],
+    "src": "users-imgs-folders/example/example5.webp"
   },
   {
-    "name": "example6.jpg",
-    "date": "91/07/2022",
+    "name": "monke_lol.webp",
+    "date": "12/08/2022",
     "tags": [],
-    "src": "users-imgs-folders/example/example6.jpg"
+    "src": "users-imgs-folders/example/monke_lol.webp"
   },
   {
-    "name": "example7.jpg",
-    "date": "91/07/2022",
-    "tags": [],
-    "src": "users-imgs-folders/example/example7.jpg"
+    "name": "300iq.jpg",
+    "date": "12/08/2022",
+    "tags": ["#4-sezon_nu-nakonecto"],
+    "src": "users-imgs-folders/example/300iq.jpg"
   }
 ]

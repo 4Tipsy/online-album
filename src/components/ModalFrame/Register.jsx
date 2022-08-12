@@ -36,8 +36,10 @@ function Register({setActive}) {
       <button className='submit-btn' onClick={ () => {handleBtnClick()} }>Register</button>
 
       <div className='after-submit-btn-text'>Already have an account? <span className='__log-in' onClick={ () => {setActive('log-in')} }>Log in</span></div>
-      <div className='after-submit-btn-text __registration-errors'
-      style={error === 'user was add successfully' ? {color: '#28D328'} : {}}>{error}</div>
+      <div className={error === 'user was add successfully' 
+      ? 'after-submit-btn-text __success' 
+      : 'after-submit-btn-text __registration-errors'
+      }>{error}</div>
       
     </>
   )

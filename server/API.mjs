@@ -9,6 +9,7 @@ import handleRegistration from './routes/handleRegistration.mjs'
 import handleLogin from './routes/handleLogin.mjs'
 import handleUserEntry from './routes/handleUserEntry.mjs'
 import handleImgUpload from './routes/handleImgUpload.mjs'
+import handleImgDelete from './routes/handleImgDelete.mjs'
 
 
 // some globals
@@ -57,6 +58,8 @@ app.post('/login', handleLogin)
 // upload img
 app.post('/upload-img', handleImgUpload)
 
+// delete img
+app.post('/delete-img', handleImgDelete)
 
 
 // Start the server

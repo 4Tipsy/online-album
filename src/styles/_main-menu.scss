@@ -38,6 +38,7 @@
   > div:not(.main-menu-separator) {
     width: 70%; // width for not-separators sections
   }
+
   .main-menu-separator {
     border: 2px solid var(--lighter-main-color);
     width: 80%;
@@ -48,12 +49,14 @@
     justify-content: center;
 
     border-radius: 15px;
+    border: none;
     background-color: var(--lighter-main-color);
     color: var(--not-that-white-color);
     font-family: "Arvo Regular";
 
-    margin: 2vh 0;
+    margin: 2.1vh 0;
     height: 6.5vh;
+    width: 100%;
     cursor: pointer;
 
     font-size: 18px;
@@ -61,12 +64,18 @@
     &:hover {
       text-decoration: underline;
     }
+    &:active {
+      filter: brightness(71%);
+    }
 
     &.click-here-btn {
       background-image: var(--highlight-gradient);
+      margin-top: 3.2vh;
     }
   }
-
+  .btns-section {
+    margin: 0.4vh 0;
+  }
 
   .account-and-acc-btns-section {
     display: flex;
@@ -107,8 +116,10 @@
       font-size: 22px;
     }
     .__nickname.logged-in { // when user is logged in
-      font-family: "Arvo Bold";
-      font-size: 24px;
+      font-family: "Roboto Regular";
+      font-size: 26px;
+
+      @include highlighted-text;
     }
   }
 }
@@ -120,20 +131,22 @@ make menu show off animation
 ------------------------- */
 
 .main-menu {
-  overflow: hidden; /**/
+  overflow: hidden;
 }
 .main-menu-separator, .main-menu-btn, .nickname-section, .logo {
   opacity: 0;
+  transform: scale(0);
 
-  transition: 0.16s ease-in;
+  transition: opacity 0.16s ease-in;
 }
 
 .main-menu:hover {
   width: 400px !important;
 
   .main-menu-separator, .main-menu-btn, .nickname-section, .logo {
+    transform: scale(1);
     opacity: 1;
-    transition: 0.5s ease-in;
+    transition: opacity 0.5s ease-in;
   }
 
   .menu-arrow-section {

@@ -63,46 +63,95 @@
   aspect-ratio: 1 / 1;
   width: 80%;
 
-  background-size: contain;
+  background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 
   position: relative;
 
-  border: 1px solid var(--darker-main-color);
+  border: 1px dashed var(--darker-main-color);
+  border-radius: 8px;
+  box-sizing: content-box;
 
+  .__options {
+    position: absolute;
+    bottom: 20%;
+    right: -1px;
+
+    width: 20%;
+    height: calc(80% + 1px);
+
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(1.5px);
+    border-radius: 0 8px 0 0;
+
+  }
   .__name {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    bottom: -1px;
+    left: -1px;
 
     overflow: hidden;
-    width: 100%;
-    height: 25%;
+    width: calc(100% + 2px);
+    height: calc(20% + 1px);
 
-    background-color: rgba(0, 0, 0, 0.5);
+
+    background-color: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(1.5px);
+    border-radius: 0 0 8px 8px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
     color: var(--not-that-white-color);
-    font-family: "Arvo Italic";
-    font-size: 1.5vw;
+    font-family: "Arvo Regular";
+    font-size: 1.7vw;
 
-    opacity: 0;
-    transition: 0.2s;
 
     > div { // inner text
       width: 90%;
       height: 90%;
+      
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
   }
 
-  &:hover .__name {
+  // animation on hover
+  .__name, .__options {
+    opacity: 0;
+    transition: opacity 0.3s;
+    transform: scale(0);
+  }
+  &:hover .__name, &:hover .__options {
     opacity: 1;
+    transform: scale(1);
+  }
+
+
+  .__options {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .ur-img-option-btn {
+    width: 65%;
+    aspect-ratio: 1 / 1;
+    cursor: pointer;
+
+  }
+  .__download:hover svg path {
+    fill: var(--success-color);
+  }
+  .__delete:hover svg path {
+    fill: var(--error-color);
   }
 }
+
+
 
 // massages
 

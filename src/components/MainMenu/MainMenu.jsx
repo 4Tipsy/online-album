@@ -17,14 +17,14 @@ function MainMenu ({userInfo, setModalActive, setSettingsActive}) {
       <AccountSection userInfo={userInfo} setModalActive={setModalActive} />
       <div className='main-menu-separator'/>
       <div className='btns-section'>
-        <div className='main-menu-btn'>_</div>
-        <div className='main-menu-btn' onClick={ () => {setSettingsActive(true)} }>Settings</div>
-        <div className='main-menu-btn'>_</div>
-        <div className='main-menu-btn'>_</div>
+          <button className='main-menu-btn'>_</button>
+          <button className='main-menu-btn' onClick={ () => {setSettingsActive(true)} }>Settings</button>
+          <button className='main-menu-btn'>_</button>
+          <button className='main-menu-btn'>_</button>
       </div>
       <div className='main-menu-separator'/>
       <div className='last-section'>
-        <div className='main-menu-btn click-here-btn' onClick={ () => {setModalActive('other-options')} }>Click here =)</div>
+        <button className='main-menu-btn click-here-btn' onClick={ () => {setModalActive('other-options')} }>Click here =)</button>
       </div>
       <span className='menu-arrow-section'>
         <svg className='__arrow' viewBox="0 0 77 55" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -51,12 +51,12 @@ function AccountSection ({userInfo, setModalActive}) {
       </div>
       <div className='account-btns-section'>
         {userInfo.userIsLogged
-        ? <div className='main-menu-btn' onClick={ () => {setModalActive('register')} }>---</div>
-        : <div className='main-menu-btn' onClick={ () => {setModalActive('register')} }>Register</div>
+        ? <button className='main-menu-btn' onClick={ () => {window.alert('unavailable in this version')} }>Account settings</button>
+        : <button className='main-menu-btn' onClick={ () => {setModalActive('register')} }>Register</button>
         }
         {userInfo.userIsLogged
-        ? <div className='main-menu-btn' onClick={ () => {handleLogOut()} }>Log-out</div>
-        : <div className='main-menu-btn' onClick={ () => {setModalActive('log-in')} }>Log-in</div>
+        ? <button className='main-menu-btn' onClick={ () => {handleLogOut()} }>Log-out</button>
+        : <button className='main-menu-btn' onClick={ () => {setModalActive('log-in')} }>Log-in</button>
         }
       </div>
     </div>

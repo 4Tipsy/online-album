@@ -38,7 +38,7 @@ function ImgUpload({currentImg}) {
         type='text' className='__date-input' value={imgDate} onChange={ (e) => {setImgDate(e.currentTarget.value)} }/>
         <div className='__set-todays-date-btn' onClick={ () => {setTodaysDate()} }>today's date</div>
             
-        <div className='__errors'>{error}</div>
+        <div className='__errors' style={error === '' ? {display: "none"} : {}}>{error}</div>
         <div className='__status'>{status}</div>
       </div>
 

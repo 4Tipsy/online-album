@@ -1,6 +1,6 @@
-import React, {useEffect, useState} from 'react';
-import axios from "axios";
+import React from 'react';
 import {YouShouldLogIn, TextMassage} from './ImgsGridInnerMassages';
+import UrImg from './UrImg'
 
 
 function ImgsGridInner({status, imgs}) {
@@ -29,6 +29,7 @@ function ImgsGridInner({status, imgs}) {
   )
 }
 
+/* i dunno if it will be used or not
 
 function DateSeparator(props) {
   return (
@@ -38,21 +39,12 @@ function DateSeparator(props) {
     </div>
   )
 }
+*/
 
-function UrImg({src, name}) {
-  return (
-    <div className='ur-img-wrapper'>
-      <div className='ur-img' 
-      style={{backgroundImage: "url("+src+")"}}>
 
-        <div className='__name'>
-          <div>{name}</div>
-        </div>
 
-      </div>
-    </div>
-  )
-}
+
+
 
 
 export default ImgsGridInner

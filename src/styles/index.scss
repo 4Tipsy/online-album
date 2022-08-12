@@ -6,10 +6,11 @@
   --not-that-white-color: #DADADA;
   --highlight-gradient: linear-gradient(177deg, #CBCF0C 4.59%, #A21C1C 119.34%);
   --error-color: #fd4444;
+  --success-color: #28D328;
 }
 body {
   margin: 0;
-  background-color: var(--lighter-main-color);
+  background-color: var(--lighter-main-color) !important;
 }
 #root {
   position: absolute;

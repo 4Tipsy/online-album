@@ -6,7 +6,7 @@ import ImgsGridInner from './components/ImgsGridInner/ImgsGridInner';
 import MainMenu from './components/MainMenu/MainMenu';
 import ModalFrame from './components/ModalFrame/ModalFrame';
 import SettingsFrame from './components/SettingsFrame/SettingsFrame';
-import DownloadFrame from './components/DownloadFrame/DownloadFrame';
+import UploadFrame from './components/UploadFrame/UploadFrame';
 
 
 
@@ -75,7 +75,7 @@ function App() {
       <ModalFrame active={modalActive} setActive={setModalActive}/>
       <SettingsFrame active={settingsActive} setActive={setSettingsActive}/>
 
-      <DownloadFrame active={downloadActive} setActive={setDownloadActive}/>
+      <UploadFrame active={downloadActive} setActive={setDownloadActive}/>
       {userInfo.userIsLogged && <div className='download-frame-trigger' onClick={ () => {setDownloadActive(true)} }/>}
     </>
   )
