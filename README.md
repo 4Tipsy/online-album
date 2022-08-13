@@ -19,8 +19,12 @@ Despite that everything is ***already working*** at the link above
 you can deploy the app by yourself that way:
 
 1) Download files from repo
-2) Run `npm run build` and get `build/` folder (front-end of the site)
-3) Open API.mjs and:
+2) Open src/index.js and:
+```js
+10| window.SERVER_ADDRESS = 'http://localhost:5000' // change to [just your futere site domen (`http://example.com`)]
+```
+3) Run `npm run build` and get `build/` folder (front-end of the site)
+4) Open server/API.mjs and:
 ```js
 16| global.SERVER_PORT = 3000 // <-- change to 80
 17| global.CLIENT_ADDRESS = 'http://localhost:3000' // <-- change to false
@@ -34,8 +38,8 @@ you can deploy the app by yourself that way:
 68|   res.sendFile("/home/qwerty/my-projects/online-album/build/index.html") // <-- set link to *build/index.html*
 69| })
 ```
-4) Deploy `build/` and `server/` to wherever you are deploying, install dependencies (package.json) and run `API.mjs`
-5) Perhaps fix some issues with paths and so on
+5) Deploy `build/` and `server/` to wherever you are deploying, install dependencies (package.json) and run `API.mjs`
+6) Perhaps fix some issues with paths and so on
 
 
 ## How to review the app
