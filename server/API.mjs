@@ -13,8 +13,8 @@ import handleImgDelete from './routes/handleImgDelete.mjs'
 
 
 // some globals
-global.SERVER_PORT = 5000
-global.CLIENT_ADDRESS = 'http://localhost:3000'
+global.SERVER_PORT = 3000
+global.CLIENT_ADDRESS = 'http://localhost:3000' /* used in development | set false to production */
 global.JWT_SECRET = 'qwerty'
 global.USERS_IMGS_FOLDERS = 'public/users-imgs-folders'
 
@@ -24,7 +24,7 @@ const app = express()
 
 // CORS stuff
 app.use((req, res, next) => {
-  res.append('Access-Control-Allow-Origin', [global.CLIENT_ADDRESS])
+  global.CLIENT_ADDRESS && res.append('Access-Control-Allow-Origin', [global.CLIENT_ADDRESS])
   res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS')
   res.append('Access-Control-Allow-Headers', 'Content-Type, Authorization')
   res.append('Access-Control-Expose-Headers', 'authorization')
@@ -60,6 +60,13 @@ app.post('/upload-img', handleImgUpload)
 
 // delete img
 app.post('/delete-img', handleImgDelete)
+
+
+// SITE ITSELF
+app.use(express.static("/home/qwerty/my-projects/online-album/build")) // <-- link to build
+app.get("/", (req, res) => {
+  res.sendFile("/home/qwerty/my-projects/online-album/build/index.html") // <-- link to index.html
+})
 
 
 // Start the server
