@@ -1,7 +1,7 @@
 import React from 'react';
 
 
-function MainMenu ({userInfo, setModalActive, setSettingsActive}) {
+function MainMenu ({userInfo, setModalActive, setSettingsActive, tagsActive, setTagsActive}) {
 
 
   return (
@@ -16,12 +16,10 @@ function MainMenu ({userInfo, setModalActive, setSettingsActive}) {
       <div className='main-menu-separator'/>
       <AccountSection userInfo={userInfo} setModalActive={setModalActive} />
       <div className='main-menu-separator'/>
-      <div className='btns-section'>
-          <button className='main-menu-btn'>_</button>
-          <button className='main-menu-btn' onClick={ () => {setSettingsActive(true)} }>Settings</button>
-          <button className='main-menu-btn'>_</button>
-          <button className='main-menu-btn'>_</button>
-      </div>
+
+      <BtnsSection userIsLogged={userInfo.userIsLogged} setSettingsActive={setSettingsActive}
+      tagsActive={tagsActive} setTagsActive={setTagsActive}/>
+
       <div className='main-menu-separator'/>
       <div className='last-section'>
         <button className='main-menu-btn click-here-btn' onClick={ () => {setModalActive('other-options')} }>Click here =)</button>
@@ -39,6 +37,14 @@ function MainMenu ({userInfo, setModalActive, setSettingsActive}) {
 
 
 function AccountSection ({userInfo, setModalActive}) {
+
+  function handleLogOut() {
+    if (window.confirm("Do you want to log out?")) {
+      localStorage.removeItem('auth-token')
+      window.location.reload()
+    }
+  }
+
   return (
     <div className='account-and-acc-btns-section'>
       <div className='account-section'>
@@ -63,11 +69,31 @@ function AccountSection ({userInfo, setModalActive}) {
   )
 }
 
-function handleLogOut() {
-  localStorage.removeItem('auth-token')
-  window.location.reload()
-}
 
+function BtnsSection({userIsLogged, setSettingsActive, tagsActive, setTagsActive}) {
+  
+
+  return (
+    <div className='btns-section'>
+      <button className='main-menu-btn' onClick={ () => {setSettingsActive(true)} }>Settings</button>
+      {userIsLogged 
+      ?
+      <> {/* if user is logged in */}
+      <button className='main-menu-btn' onClick={ () => {setTagsActive(tagsActive ? false : true)} }
+      style={tagsActive ? {color: "var(--success-color)"} : {}}>Sort by tags</button>
+      <button className='main-menu-btn'>_</button>
+      <button className='main-menu-btn'>_</button>
+      </>
+      :
+      <> {/* if no user */}
+      <button className='main-menu-btn' disabled>_</button>
+      <button className='main-menu-btn' disabled>_</button>
+      <button className='main-menu-btn' disabled>_</button>
+      </>
+      }
+    </div>
+  )
+}
 
 
 export default MainMenu;

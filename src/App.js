@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 
 // components
-import ImgsGridInner from './components/ImgsGridInner/ImgsGridInner';
+import ImgsGrid from './components/ImgsGrid/ImgsGrid';
 import MainMenu from './components/MainMenu/MainMenu';
 import ModalFrame from './components/ModalFrame/ModalFrame';
 import SettingsFrame from './components/SettingsFrame/SettingsFrame';
@@ -17,6 +17,7 @@ function App() {
   const [modalActive, setModalActive] = useState(false);
   const [downloadActive, setDownloadActive] = useState(false);
   const [settingsActive, setSettingsActive] = useState(false);
+  const [tagsActive, setTagsActive] = useState(false);
 
   const [urImgsStatus, setUrImgsStatus] = useState("loading");
   const [urImgs, setUrImgs] = useState([]);
@@ -26,7 +27,8 @@ function App() {
   useEffect(() => {
     userEntry() // setting urImgs and userInfo
     
-  }, []);
+  }, [])
+
   async function userEntry() {
 
     // get auth token
@@ -65,12 +67,10 @@ function App() {
   return (
     <>
       <MainMenu userInfo={userInfo} setModalActive={setModalActive} 
-      setSettingsActive={setSettingsActive}/>
+      setSettingsActive={setSettingsActive} tagsActive={tagsActive} setTagsActive={setTagsActive}/>
 
-      <div className='imgs-grid-gap'/>
-      <div className='imgs-grid'>
-        <ImgsGridInner imgs={urImgs} status={urImgsStatus}/>
-      </div>
+      <ImgsGrid imgs={urImgs} status={urImgsStatus} tagsActive={tagsActive}/>
+
 
       <ModalFrame active={modalActive} setActive={setModalActive}/>
       <SettingsFrame active={settingsActive} setActive={setSettingsActive}/>

@@ -5,7 +5,7 @@
 # ----------------------------------------------------------------------
 # deletes all the accounts(and their folders of course)
 # but don't touch [example] folder, cuz it required to create new accounts
-# in other words,, [example] folder is a part of app
+# in other words, [example] folder is a part of app
 
 
 import os, json, shutil

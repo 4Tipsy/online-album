@@ -32,7 +32,7 @@ if tester not in users:
 
 with open(path_to_users_json, "w") as write_file:
   json.dump(users, write_file, indent=4)
-  print('=> in users.json restored')
+  print('=> tester in users.json restored')
 
 
 
@@ -43,4 +43,4 @@ if os.path.exists("imgs__tester"):
   shutil.rmtree("imgs__tester")
 
 shutil.copytree("example", "imgs__tester")
-print("=> folder restored")
+print("=> tester's folder restored")
