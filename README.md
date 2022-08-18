@@ -21,7 +21,7 @@ you can deploy the app by yourself that way:
 1) Download files from repo
 2) Open src/index.js and:
 ```js
-10| window.SERVER_ADDRESS = 'http://localhost:5000' // change to your future site domen (`http://example.com`)
+10| window.SERVER_ADDRESS = 'http://localhost:5000' // <-- change to your future site domen (`http://example.com`)
 ```
 3) Run `npm run build` and get `build` folder (front-end of the site)
 4) Open `server/API.mjs` and:

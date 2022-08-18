@@ -7,7 +7,7 @@ import App from './App';
 
 /* the global vars */
 
-window.SERVER_ADDRESS = 'http://localhost:5000' // used in axios requests
+window.SERVER_ADDRESS = 'http://localhost:3030' // used in axios requests (change to site's domen in production [with no "/" at the end])
 
 /* --------------- */
 

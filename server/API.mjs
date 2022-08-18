@@ -13,7 +13,7 @@ import handleImgDelete from './routes/handleImgDelete.mjs'
 
 
 // some globals
-global.SERVER_PORT = 3000
+global.SERVER_PORT = 3030
 global.CLIENT_ADDRESS = 'http://localhost:3000' /* used in development | set false to production */
 global.JWT_SECRET = 'qwerty'
 global.USERS_IMGS_FOLDERS = 'public/users-imgs-folders'

@@ -110,6 +110,7 @@ function ImgUpload({currentImg}) {
         } else if (response.data.error === 'none') {
           setError('')
           setStatus('image was uploaded successfully!')
+          window.location.reload()
 
 
         // if something unexpected happened
