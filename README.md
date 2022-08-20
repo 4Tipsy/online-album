@@ -1,5 +1,5 @@
 ## Online Album
-Site link! %%
+Site link! http://online-album.uxp.ru
 
 The site is already hosted and fully operational!
 
@@ -15,11 +15,11 @@ Hope you will appreciate my work =)
 
 ## How to deploy this app
 
-Despite that everything is ***already working*** at the link above  
-you can deploy the app by yourself that way:
+If you want to deploy the app by yourself  
+you should:
 
 1) Download files from repo
-2) Open src/index.js and:
+2) Open `src/index.js` and:
 ```js
 10| window.SERVER_ADDRESS = 'http://localhost:5000' // <-- change to your future site domen (`http://example.com`)
 ```
@@ -45,11 +45,11 @@ you can deploy the app by yourself that way:
 
 ## How to review the app
 
-1) Go to the site's link (%%)
+1) Go to the site's link (http://online-album.uxp.ru)
 2) Register in the site's menu (there is no need to confirm the mail)
 3) Log in (also in the menu)
-4) And go ahead =)
-*) If you want a brief description of app functions, read the user manual
+4) And go ahead =)  
+* If you want a brief description of app functions, read the user manual
 
 
 # User manual
