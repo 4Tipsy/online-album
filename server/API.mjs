@@ -22,7 +22,7 @@ const app = express()
 
 
 
-// CORS stuff
+// CORS stuff + some middleware
 app.use((req, res, next) => {
   global.CLIENT_ADDRESS && res.append('Access-Control-Allow-Origin', [global.CLIENT_ADDRESS])
   res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,PATCH,OPTIONS')
@@ -34,7 +34,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(fileUpload())
 
-// hashing password
+// hashing password (it could be used btw)
 function getHashedPassword(password) {
   const sha256 = crypto.createHash('sha256')
   const hash = sha256.update(password).digest('base64')

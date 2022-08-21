@@ -2,11 +2,11 @@ import React from "react";
 import axios from "axios";
 
 
-function UrImg({src, name}) {
+function UrImg({img, setViewImg}) {
 
 
   async function deleteImg() {
-    if (window.confirm(`Delete ${name}?`)) {
+    if (window.confirm(`Delete ${img.name}?`)) {
 
       // get auth token
       const token = localStorage.getItem('auth-token')
@@ -22,7 +22,7 @@ function UrImg({src, name}) {
           // making a request
 
           let dataToSend = {}
-          dataToSend.imgSrc = src // <-- props.src
+          dataToSend.imgSrc = img.src // <-- props.src
 
           const response = await axios.post(
             window.SERVER_ADDRESS + '/delete-img',
@@ -57,16 +57,16 @@ function UrImg({src, name}) {
 
   return (
     <div className='ur-img-wrapper'>
-      <div className='ur-img' 
-      style={{backgroundImage: "url("+src+")"}}>
+      <div className='ur-img' onClick={() => {setViewImg(img)} }
+      style={{backgroundImage: "url("+img.src+")"}}>
 
-        <div className='__name'>
-          <div>{name}</div>
+        <div className='__name' onClick={e => e.stopPropagation()}>
+          <div>{img.name}</div>
         </div>
-        <div className='__options'>
+        <div className='__options' onClick={e => e.stopPropagation()}>
 
           {/* download */}
-          <a className='ur-img-option-btn __download' href={src} download>
+          <a className='ur-img-option-btn __download' href={img.src} download>
             <svg viewBox="0 0 748 704" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M367.7 501C368.448 501.956 369.404 502.729 370.496 503.261C371.588 503.793 372.786 504.069 374 504.069C375.214 504.069 376.412 503.793 377.504 503.261C378.595 502.729 379.552 501.956 380.3 501L492.3 359.3C496.4 354.1 492.7 346.4 486 346.4H411.9V8C411.9 3.6 408.3 0 403.9 0H343.9C339.5 0 335.9 3.6 335.9 8V346.3H262C255.3 346.3 251.6 354 255.7 359.2L367.7 501ZM740 466H680C675.6 466 672 469.6 672 474V628H76V474C76 469.6 72.4 466 68 466H8C3.6 466 0 469.6 0 474V672C0 689.7 14.3 704 32 704H716C733.7 704 748 689.7 748 672V474C748 469.6 744.4 466 740 466Z" fill="#DADADA"/></svg>
           </a>

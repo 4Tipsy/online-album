@@ -1,0 +1,138 @@
+.view-img-wrapper {
+  width: 100vw;
+  height: 100vh;
+
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: rgba(0, 0, 0, 0.75);
+  z-index: 15;
+
+}
+
+
+.view-img-frame:before {
+  // annotation how to close the frame
+  content: "[tap outside to close]";
+  font-family: "Arvo Regular";
+  font-size: small;
+  color: var(--not-that-white-color);
+
+  position: absolute;
+  right: 1%;
+  top: 0;
+  transform: translateY(-120%);
+}
+.view-img-frame {
+  position: relative;
+
+  width: 80vw;
+  max-width: calc(80vh * 1.5);
+  height: 85vh;
+
+  background-color: var(--darker-main-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+
+  .__img {
+    height: 76%;
+    width: 88%;
+    margin: 2vh 0;
+  
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+  .__img-info-zone {
+
+    width: 88%;
+
+
+    .__name {
+      font-size: larger;
+      font-family: "Arvo Bold";
+      color: var(--not-that-white-color);
+      width: 100%;
+      text-align: center;
+    }
+    .__tags {
+      font-size: medium;
+      font-family: "Arvo Italic";
+      color: var(--not-that-white-color);
+
+      overflow-x: auto;
+      white-space: nowrap;
+
+      width: calc(56% - 3px);
+      padding: 0.55vh 0;
+      text-align: center;
+
+      // scroll customization
+      scrollbar-width: thin;
+      scrollbar-color: var(--lighter-main-color) var(--darker-main-color);
+      &::-webkit-scrollbar {
+        height: 5px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: var(--darker-main-color);
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: var(--lighter-main-color);
+        border-radius: 15px;
+      }
+    }
+
+    .__date {
+      width: 22%;
+      padding: 0.55vh 0;
+
+      color: var(--not-that-white-color);
+      font-family: "Arvo Regular";
+      font-size: medium;
+      text-align: center;
+    }
+
+    .__btns-section {
+      width: 22%;
+      padding: 0.55vh 0;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+
+      .__btn {
+        height: 23px;
+        aspect-ratio: 1 / 1;
+        cursor: pointer;
+      }
+      .__download:hover svg path {
+        fill: var(--success-color);
+      }
+      .__delete:hover svg path {
+        fill: var(--error-color);
+      }
+    }
+
+
+    .__big-separator {
+      border: 2px solid var(--not-that-white-color);
+      width: 100%;
+      box-sizing: border-box;
+      margin: 0.6vh 0;
+    }
+    .__small-separator {
+      width: 3px;
+      background-color: var(--not-that-white-color);
+      margin: 2px 0;
+    }
+  }
+}
+

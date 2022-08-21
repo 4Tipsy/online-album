@@ -4,7 +4,7 @@ import ImgsGridImgs from "./ImgsGridImgs";
 
 
 
-function ImgsGrid({status, imgs, tagsActive}) {
+function ImgsGrid({status, imgs, tagsActive, setViewImg}) {
 
   const [filterMode, setFilterMode] = useState([]);
 
@@ -75,7 +75,7 @@ function ImgsGrid({status, imgs, tagsActive}) {
           </div>
         }
 
-        <ImgsGridImgs status={status} imgs={imgs} filterMode={filterMode} />
+        <ImgsGridImgs status={status} imgs={imgs} filterMode={filterMode} setViewImg={setViewImg}/>
   
       </div>
     </>

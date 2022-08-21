@@ -3,7 +3,7 @@ import {YouShouldLogIn, TextMassage} from './Massages';
 import UrImg from './UrImg'
 
 
-function ImgsGridImgs({status, imgs, filterMode}) {
+function ImgsGridImgs({status, imgs, filterMode, setViewImg}) {
   
 
   function getFilteredImgs(arrayOfImgs) {
@@ -53,7 +53,7 @@ function ImgsGridImgs({status, imgs, filterMode}) {
           {filterMode.length > 0 && <div className="filter-result">{getFilteredImgs(imgs).length} from {imgs.length} showed:</div>}
 
           {/* images */}
-          {getFilteredImgs(imgs).map(img => <UrImg src={img.src} name={img.name} key={img.name}/>)}
+          {getFilteredImgs(imgs).map(img => <UrImg img={img} key={img.name} setViewImg={setViewImg}/>)}
         </>
 
 

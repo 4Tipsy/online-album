@@ -24,6 +24,9 @@ body {
 }
 
 
+
+
+
 @mixin highlighted-text {
   background: var(--highlight-gradient);
   -webkit-background-clip: text;
@@ -35,9 +38,28 @@ body {
   @include highlighted-text;
 }
 
+@mixin scroll-customization {
+  scrollbar-width: thin;
+  scrollbar-color: var(--darker-main-color) var(--lighter-main-color);
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: var(--lighter-main-color);
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--darker-main-color);
+    border-radius: 10px;
+  }
+}
+
+
+
 
 @import 'main-menu';
 @import 'imgs-grid';
 @import 'modal-frame';
 @import 'settings-frame';
-@import 'download-frame';
+@import 'upload-frame';
+@import 'view-img-frame';

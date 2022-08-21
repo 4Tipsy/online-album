@@ -7,7 +7,7 @@ import MainMenu from './components/MainMenu/MainMenu';
 import ModalFrame from './components/ModalFrame/ModalFrame';
 import SettingsFrame from './components/SettingsFrame/SettingsFrame';
 import UploadFrame from './components/UploadFrame/UploadFrame';
-
+import ViewImgFrame from './components/ViewImgFrame/ViewImgFrame';
 
 
 
@@ -15,9 +15,11 @@ import UploadFrame from './components/UploadFrame/UploadFrame';
 function App() {
 
   const [modalActive, setModalActive] = useState(false);
-  const [downloadActive, setDownloadActive] = useState(false);
+  const [uploadActive, setUploadActive] = useState(false);
   const [settingsActive, setSettingsActive] = useState(false);
-  const [tagsActive, setTagsActive] = useState(false);
+  const [viewImg, setViewImg] = useState(''); // <-- will contain img data
+
+  const [tagsActive, setTagsActive] = useState(true);
 
   const [urImgsStatus, setUrImgsStatus] = useState("loading");
   const [urImgs, setUrImgs] = useState([]);
@@ -69,14 +71,16 @@ function App() {
       <MainMenu userInfo={userInfo} setModalActive={setModalActive} 
       setSettingsActive={setSettingsActive} tagsActive={tagsActive} setTagsActive={setTagsActive}/>
 
-      <ImgsGrid imgs={urImgs} status={urImgsStatus} tagsActive={tagsActive}/>
+      <ImgsGrid imgs={urImgs} status={urImgsStatus} tagsActive={tagsActive} setViewImg={setViewImg}/>
+
+      {viewImg && <ViewImgFrame viewImg={viewImg} setViewImg={setViewImg}/>}
 
 
       <ModalFrame active={modalActive} setActive={setModalActive}/>
       <SettingsFrame active={settingsActive} setActive={setSettingsActive}/>
 
-      <UploadFrame active={downloadActive} setActive={setDownloadActive}/>
-      {userInfo.userIsLogged && <div className='download-frame-trigger' onClick={ () => {setDownloadActive(true)} }/>}
+      <UploadFrame active={uploadActive} setActive={setUploadActive}/>
+      {userInfo.userIsLogged && <div className='upload-frame-trigger' onClick={ () => {setUploadActive(true)} }/>}
     </>
   )
 }

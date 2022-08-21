@@ -1,18 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 
 
 import ImgInput from './ImgInput';
 import ImgUpload from './ImgUpload';
 
 
-function DownloadFrame({active, setActive}) {
+function UploadFrame({active, setActive}) {
   
   const [img, setImg] = useState('');
 
   return (
-    <div className={active ? 'download-frame-wrapper _active' : 'download-frame-wrapper'} 
+    <div className={active ? 'upload-frame-wrapper _active' : 'upload-frame-wrapper'} 
     onClick={ () => {setActive(false); setImg('')} }>
-      <div className='download-frame' onClick={e => e.stopPropagation()}>
+      <div className='upload-frame' onClick={e => e.stopPropagation()}>
 
         {img ? <ImgUpload currentImg={img}/> : <ImgInput setImg={setImg}/>}
 
@@ -29,4 +29,4 @@ function DownloadFrame({active, setActive}) {
 
 
 
-export default DownloadFrame
+export default UploadFrame

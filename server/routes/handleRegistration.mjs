@@ -31,6 +31,17 @@ const handleRegistration = (request, response) => {
       let newUserFolderPath = path.join(global.USERS_IMGS_FOLDERS, newUserFolderName)
       fs.cpSync( path.join(global.USERS_IMGS_FOLDERS, 'example'), newUserFolderPath, {recursive: true} )
 
+      let pathToStructure = path.join(newUserFolderPath, 'structure.json')
+      let structure = JSON.parse(fs.readFileSync(pathToStructure, 'utf8'))
+      structure.forEach(
+        (img) => {
+          img.src = path.join('users-imgs-folders', newUserFolderName, img.name)
+        }
+      )
+      fs.writeFileSync(pathToStructure, JSON.stringify(structure, null, '\t'))
+
+
+
       // push new user to "data-base"
       let newUser = {}
       newUser['nickname'] = nickname

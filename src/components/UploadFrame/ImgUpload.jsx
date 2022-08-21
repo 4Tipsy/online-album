@@ -26,7 +26,7 @@ function ImgUpload({currentImg}) {
       <div className='img-preview' style={{backgroundImage: `url(${previewImg})`}}/>
 
       <div className='__name-and-tags-zone'>
-        <input className='__name-input' name="qqe" type='text' value={imgName} onChange={ (e) => {setImgName(e.currentTarget.value)} }/>
+        <input className='__name-input' type='text' value={imgName} onChange={ (e) => {setImgName(e.currentTarget.value)} }/>
         <div className='__separator'/>
         <input className='__tags-input' type='text' value={imgTags} onChange={ (e) => {setImgTags(e.currentTarget.value)} }
         placeholder='place your tags here (they should start with "#")'/>

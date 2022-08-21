@@ -1,5 +1,7 @@
 
 .main-menu {
+  border-right: 1px solid var(--lighter-main-color);
+
   z-index: 10;
   transition: 0.25s ease-in-out;
 

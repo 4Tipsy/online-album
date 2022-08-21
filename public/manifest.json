@@ -1,0 +1,15 @@
+{
+  "name": "Online Album",
+  "short_name": "Album",
+  "lang": "eng",
+  "start_url": "http://online-album.uxp.ru",
+  "display": "standalone",
+  "background_color": "#202020",
+  "icons": [
+    {
+      "src": "homescreen.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    }
+  ]
+}
