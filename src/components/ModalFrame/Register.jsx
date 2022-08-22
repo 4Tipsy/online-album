@@ -62,8 +62,8 @@ function Register({setActive}) {
     } else if (password.length < 6) {
       setError('the minimal length of password is 6')
 
-    } else if (! /^[a-zA-Z0-9-]+$/.test(password)) {
-      setError('password can only contain eng letters and numbers')
+    } else if (! /^[a-zA-Z0-9- \- _]+$/.test(password)) {
+      setError('password can only contain eng letters, "-", "_" and numbers')
 
     } else if (password !== repeatPassword) {
       setError('password do not match')

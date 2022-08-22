@@ -75,7 +75,6 @@ function BtnsSection({userIsLogged, setSettingsActive, tagsActive, setTagsActive
 
   return (
     <div className='btns-section'>
-      <button className='main-menu-btn' onClick={ () => {setSettingsActive(true)} }>Settings</button>
       {userIsLogged 
       ?
       <> {/* if user is logged in */}
@@ -83,9 +82,11 @@ function BtnsSection({userIsLogged, setSettingsActive, tagsActive, setTagsActive
       style={tagsActive ? {color: "var(--success-color)"} : {}}>Sort by tags</button>
       <button className='main-menu-btn'>_</button>
       <button className='main-menu-btn'>_</button>
+      <button className='main-menu-btn'>_</button>
       </>
       :
       <> {/* if no user */}
+      <button className='main-menu-btn' disabled>_</button>
       <button className='main-menu-btn' disabled>_</button>
       <button className='main-menu-btn' disabled>_</button>
       <button className='main-menu-btn' disabled>_</button>

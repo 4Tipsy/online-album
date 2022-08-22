@@ -60,6 +60,9 @@ function UrImg({img, setViewImg}) {
       <div className='ur-img' onClick={() => {setViewImg(img)} }
       style={{backgroundImage: "url("+img.src+")"}}>
 
+        <div className='__tags' data-tags={img.tags.length > 0 ? img.tags.join(' ') : 'no tags'}>
+          #
+        </div>
         <div className='__name' onClick={e => e.stopPropagation()}>
           <div>{img.name}</div>
         </div>

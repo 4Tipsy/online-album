@@ -19,7 +19,7 @@ function App() {
   const [settingsActive, setSettingsActive] = useState(false);
   const [viewImg, setViewImg] = useState(''); // <-- will contain img data
 
-  const [tagsActive, setTagsActive] = useState(true);
+  const [tagsActive, setTagsActive] = useState(false);
 
   const [urImgsStatus, setUrImgsStatus] = useState("loading");
   const [urImgs, setUrImgs] = useState([]);
@@ -28,7 +28,6 @@ function App() {
 
   useEffect(() => {
     userEntry() // setting urImgs and userInfo
-    
   }, [])
 
   async function userEntry() {

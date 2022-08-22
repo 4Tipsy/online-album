@@ -2,9 +2,9 @@
 
 :root {
   --darker-main-color: #202020;
-  --lighter-main-color: #383838;
+  --lighter-main-color: #363636;
   --not-that-white-color: #DADADA;
-  --highlight-gradient: linear-gradient(177deg, #CBCF0C 4.59%, #A21C1C 119.34%);
+  --highlight-gradient: linear-gradient(177deg, #CBCF0C 4.6%, #A21C1C 120%);
   --error-color: #fd4444;
   --success-color: #28D328;
 }
@@ -36,22 +36,6 @@ body {
 }
 .highlighted-text {
   @include highlighted-text;
-}
-
-@mixin scroll-customization {
-  scrollbar-width: thin;
-  scrollbar-color: var(--darker-main-color) var(--lighter-main-color);
-
-  &::-webkit-scrollbar {
-    width: 10px;
-  }
-  &::-webkit-scrollbar-track {
-    background-color: var(--lighter-main-color);
-  }
-  &::-webkit-scrollbar-thumb {
-    background-color: var(--darker-main-color);
-    border-radius: 10px;
-  }
 }
 
 

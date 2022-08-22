@@ -8,7 +8,7 @@
   {
     "name": "example2.jpg",
     "date": "12/08/2022",
-    "tags": ["#best-ava"],
+    "tags": ["#best-ava", "#lol"],
     "src": "users-imgs-folders/example/example2.jpg"
   },
   {
@@ -20,7 +20,7 @@
   {
     "name": "example4.webp",
     "date": "12/08/2022",
-    "tags": ["#a", "#lot", "#of", "#tags"],
+    "tags": ["#this-image", "#has-as", "#many-tags","#so-they", "#do-not-fit"],
     "src": "users-imgs-folders/example/example4.webp"
   },
   {

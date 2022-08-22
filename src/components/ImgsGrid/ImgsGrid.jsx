@@ -4,7 +4,7 @@ import ImgsGridImgs from "./ImgsGridImgs";
 
 
 
-function ImgsGrid({status, imgs, tagsActive, setViewImg}) {
+function ImgsGrid({status, imgs, tagsActive, setViewImg}) { // the component 'render' is down below
 
   const [filterMode, setFilterMode] = useState([]);
 
@@ -57,6 +57,8 @@ function ImgsGrid({status, imgs, tagsActive, setViewImg}) {
     }
   }, [tagsActive])
 
+
+
   /* IMGS GRID COMPONENT ITSELF */
   return (
     <>
@@ -64,15 +66,18 @@ function ImgsGrid({status, imgs, tagsActive, setViewImg}) {
       <div className='imgs-grid'>
 
         { tagsActive &&
-          <div className='imgs-grid-tags-area'>
+          <>
+            <div className='imgs-grid-tags-area'>
 
-            <Tag tag={"< Deselect all >"} key={"< Deselect all >"} style={{fontFamily: "Arvo BoldItalic"}}/>
-            {getTags(imgs).map(
-              tag => <Tag tag={tag} key={tag}
-              toggled={filterMode.includes(tag)}/*<-- will return true or false*/ />
-            )}
+              <Tag tag={"< Deselect all >"} key={"< Deselect all >"} style={{fontFamily: "Arvo BoldItalic"}}/>
+              {getTags(imgs).map(
+                tag => <Tag tag={tag} key={tag}
+                toggled={filterMode.includes(tag)}/*<-- will return true or false*/ />
+              )}
 
-          </div>
+            </div>
+            <div className='how-tags-work'>Note: will be shown all images with <span>at least one tag</span> matching!</div>        
+          </>
         }
 
         <ImgsGridImgs status={status} imgs={imgs} filterMode={filterMode} setViewImg={setViewImg}/>

@@ -62,8 +62,8 @@ function Login({setActive}) {
     } else if (password.length < 5) {
       setError('the minimal length of password is 6')
 
-    } else if (! /^[a-zA-Z0-9-]+$/.test(password)) {
-      setError('password can only contain eng letters and numbers')
+    } else if (! /^[a-zA-Z0-9 \- _]+$/.test(password)) {
+      setError('password can only contain eng letters, "-", "_" and numbers')
 
     } else /* if everything is ok */ {
 

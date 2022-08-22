@@ -65,13 +65,13 @@ function ImgUpload({currentImg}) {
     } else if (! /^[a-zA-Z0-9 \- _ ().)]+$/.test(imgName)) {
       setError('please use only eng letters,  numbers and "-",  "_",  "." symbols in image name')
 
-    } else if (imgTags.length > 0 && !/^[a-zA-Z0-9 /s #]+$/.test(imgTags) ) {
-      setError('use only eng letters, numbers and "#" symbol in image tags(tags separated with spaces)')
+    } else if (imgTags.length > 0 && !/^[a-zA-Z0-9 /s \- _ #]+$/.test(imgTags) ) {
+      setError('use only eng letters, numbers and "#, -, _" symbols in tags names(tags separated with spaces)')
 
     } else if (imgTags.split(' ').find(j => j[0]!=='#')) {
       setError('not all of your tags start from "#"')
 
-    } else if (imgName.indexOf('.') === -1) {
+    } else if (imgName.indexOf('.') === -1 || imgName[imgName.length - 1] === '.') {
       setError('it seems like you have not set an extension to the image')
 
     // if imgName contain spaces, it shouldn't cuz it wont be displayed(some troubles with link to such ones)

@@ -50,7 +50,7 @@ function ImgsGridImgs({status, imgs, filterMode, setViewImg}) {
         : status === "success"
         ? <>
           {/* if filtered */}
-          {filterMode.length > 0 && <div className="filter-result">{getFilteredImgs(imgs).length} from {imgs.length} showed:</div>}
+          {filterMode.length > 0 && <div className="filter-result">{getFilteredImgs(imgs).length} from {imgs.length} is shown:</div>}
 
           {/* images */}
           {getFilteredImgs(imgs).map(img => <UrImg img={img} key={img.name} setViewImg={setViewImg}/>)}

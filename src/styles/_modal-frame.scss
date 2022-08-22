@@ -39,6 +39,8 @@ do not forget to change <SettingsFrame/> too
   transform: translateY(-120%);
 }
 .modal-frame {
+  max-height: 650px; // deco fix 4 big screens
+
   position: relative;
 
   width: 480px;
