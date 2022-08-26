@@ -2,6 +2,7 @@
 
 ## First of all, structure of the app:
 
+```
 ├── public  
 │  ├── users-imgs-folders  
 │  └── index.html  
@@ -15,7 +16,8 @@
    ├── routes  
    ├── API.mjs  
    └── users.json  
-
+```
+   
 ###  public 
 ---
 
@@ -31,7 +33,8 @@ Every user folder contains a `structure.json`(info about every user’s image) a
 
 **- ImgsGrid**:  
 `ImgsGrid.jsx` is wrapper for images themselves, tags zone and so on  
-*tags zone is used to filter images  
+**tags zone is used to filter images*  
+
 `ImgsGridImgs.jsx` is images render function, with oportunity to filter them before   render or show `Massages.jsx` if something happaned  
 `UrImage.jsx` is a component of the one image itself  
 
@@ -57,8 +60,8 @@ Also there is an `Settings.jsx` component which supposed to be another modal fra
 
 **- styles**
 are very similar to `components`:  
-There is `index.scss` and _[the-same-name-as-jsx-component].scss files. Every such file fully related to its jsx component  
-I should have made it as css-modules, but I didn't know about this technology at the time…
+There are `index.scss` and... `_[the-same-name-as-jsx-component].scss` files. Every such file fully related to its jsx component  
+I should have made it as css-modules, but I didn't know about this technology at the time… But due to scss nesting, i've managed to avoid class names conflicts (yep, most of classes you will see in this app are modified by nesting)
 
 ### server
 ---
@@ -68,13 +71,17 @@ I should have made it as css-modules, but I didn't know about this technology at
 
 ## server work logic
 As I said before most of the server app looks that way:
-```
+```js
 app.post(‘/adress’, handlerFunctionFromRoutes)
 ```
 `index.html` is given to client that way:
-```
+```js
 app.use(express.static('/path'))
 app.get(‘/’, (req, res) => {
-	res.sendFile(‘/path/to/index.html’)
+    res.sendFile(‘/path/to/index.html’)
 })
 ```
+Every user data is divided into a record in `server/users.json` and a personal folder in `public/imgs-users-folders/[user-folder]`  
+
+---
+**The source code is also provided with comments, so you are welcome to watch it by yourself =)**
