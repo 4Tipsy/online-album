@@ -1,6 +1,7 @@
 import fs from 'fs'
 import path from 'path'
 
+import jwt from 'jsonwebtoken'
 
 
 const handleRegistration = (request, response) => {
@@ -15,12 +16,12 @@ const handleRegistration = (request, response) => {
   // check if email and nickname are already used
   if (users.find(user => user.email === email)) {
 
-    response.send('Error: this e-mail is already in use')
+    response.send({'result': 'Error: this e-mail is already in use'})
     console.log('   response: this e-mail is already in use \n')
 
   } else if (users.find(user => user.nickname === nickname)) {
 
-    response.send('Error: this nickname is already in use')
+    response.send({'result': 'Error: this nickname is already in use'})
     console.log('   response: this nickname is already in use \n')
 
   // if everything is ok
@@ -54,12 +55,17 @@ const handleRegistration = (request, response) => {
       fs.writeFileSync('server/users.json', JSON.stringify(users, null, '\t'))
 
 
+      // create JWT
+      const authToken = jwt.sign(
+        {"nickname": nickname, "user-folder": newUserFolderName},
+      global.JWT_SECRET)
+
       // response
-      response.send('user was add successfully')
+      response.send({'result': 'user was add successfully', 'auth-token': authToken})
       console.log(`   response: user was add successfully [${nickname}]\n`)
 
     } catch (error) {
-      response.send(`Server-error: ${error}`)
+      response.send({'result': `Server-error: ${error}`})
       console.log(`   response: ${error} \n`)
     }
   }

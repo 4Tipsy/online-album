@@ -53,7 +53,7 @@ do not forget to change <SettingsFrame/> too
   align-items: center;
   justify-content: space-evenly;
 
-  > div, button { // for not-separator div's
+  > div, button, a { // for not-separator div's (mostly buttons)
     width: 70%;
   }
 }

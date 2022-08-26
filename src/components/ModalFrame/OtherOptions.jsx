@@ -18,17 +18,16 @@ function OtherOptions() {
       <div className='after-submit-btn-text' style={{'fontSize': 'x-large'}}>Welcome to <span className='highlighted-text'>other options!</span><br/> 
       From <span className='highlighted-text'>here</span> you can:</div>
 
-      <div className='other-btn'>Enter demo mode!</div>
+      <div className='other-btn' onClick={() => window.open(window.LINKS.appsUserManual)}>Watch user manual</div>
 
       <div>
-        <div className='other-btn'>Watch documentation</div>
-        <div className='other-btn'>Watch code on GitHub</div>
-        <div className='other-btn'>Contact me (for some reason?)</div>
+        <div style={{width: '100%'}} className='other-btn' onClick={() => window.open(window.LINKS.appsDocs)}>Watch documentation</div>
+        <div style={{width: '100%'}} className='other-btn' onClick={() => window.open(window.LINKS.appsRepo)}>Watch code on GitHub</div>
       </div>
 
       <div className='modal-frame-separator'/>
 
-      <div className='other-btn'>readme!</div>
+      <div className='other-btn' onClick={() => window.open(window.LINKS.meAtGitHub)}>Contact me (for some reason?)</div>
     </>   
   )
 }

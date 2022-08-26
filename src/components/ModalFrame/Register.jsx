@@ -92,13 +92,15 @@ function Register({setActive}) {
 
 
         // if everything was ok, but registration failed (server will return reason in resp.data)
-        } else if (response.data !== 'user was add successfully') {
-          setError(response.data)
+        } else if (response.data.result !== 'user was add successfully') {
+          setError(response.data.result)
 
 
         // if user was registered!!!
-        } else if (response.data === 'user was add successfully') {
-          setError(response.data)
+        } else if (response.data.result === 'user was add successfully') {
+          setError(response.data.result)
+          localStorage.setItem('auth-token', response.data['auth-token'])
+          window.location.reload()
 
 
         // if something unexpected happened
