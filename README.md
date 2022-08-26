@@ -55,10 +55,10 @@ you should:
 # User manual
 
 In `click-here-button` (the bottom btn in the menu) there is a link to user manual   
-But just in case, the link itself: %%
+But just in case, the link itself: https://github.com/4Tipsy/online-album/blob/main/user-manual.md
 
 
 ## Full documentation
 
 In `click-here-button` (the bottom btn in the menu) there is a link to full site's docs  
-But just in case, the link itself: %%
+But just in case, the link itself: https://github.com/4Tipsy/online-album/blob/main/documentation.md
