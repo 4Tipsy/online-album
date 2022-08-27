@@ -88,5 +88,6 @@ app.get(‘/’, (req, res) => {
 Every user data is divided into a record in `server/users.json` and a personal folder in `public/imgs-users-folders/[user-folder]`.  
 
 User authentication is made with JWT, keeped in browser localStorage.
+
 ---
 **The source code is also provided with comments, so you are welcome to watch it by yourself =)**
