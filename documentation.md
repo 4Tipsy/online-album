@@ -7,8 +7,8 @@
 │  ├── users-imgs-folders  
 │  └── index.html  
 ├── src  
-│  ├──  index.js  
-│  ├──  App.js  
+│  ├── index.js  
+│  ├── App.js  
 │  ├── components  
 │  └── styles  
 └── server  
@@ -16,6 +16,9 @@
    ├── routes  
    ├── API.mjs  
    └── users.json  
+
+(without some other stuff like fonts-folder,  
+manifest.json and so on at this scheme)
 ```
    
 ###  public 
