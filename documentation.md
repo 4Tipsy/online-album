@@ -25,7 +25,7 @@ manifest.json and so on at this scheme)
 ---
 
 `users-imgs-folders` is a folder to contain users images,  
-It contains `example` folder which is used to crate users folders (it is copied and renamed, after which it is a new user folder)  
+It contains `example` folder which is used to crate users folders (it is copied and renamed, after that we get a new user folder)  
 Every user folder contains a `structure.json`(info about every user’s image) and `profileImg.webp` (yep, it’s profile picture)  
 `index.html` - predication is obvious
 
