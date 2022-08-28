@@ -28,7 +28,7 @@ function Login({setActive}) {
       <div>
         <input className='modal-frame-input' type='text' placeholder='e-mail' value={email} onChange={ (e) => {setEmail(e.currentTarget.value)} }/>
         <input className='modal-frame-input' type='password' placeholder='password' value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }
-        onKeyPress={(e) => {e.key = 'Enter' && handleLogin()} }/>
+        onKeyPress={(e) => {e.key === 'Enter' && handleLogin()} }/>
       </div>
 
       <button className='submit-btn' onClick={ () => {handleLogin()} }>Log in</button>
@@ -44,7 +44,7 @@ function Login({setActive}) {
       {<div>
         <div className='after-submit-btn-text'>If you really use my app to store images</div> 
         <div className='after-submit-btn-text'><span className='highlighted-text'>inform me</span> plz <br/>
-        <span style={{fontFamily: 'Arvo Italic', opacity: '0.45'}}>(menu -> "click here" -> contact me)</span></div>
+        <span style={{fontFamily: 'Arvo Italic', opacity: '0.45'}}>{'(menu -> "click here" -> contact me)'}</span></div>
       </div>}
     </>
   )

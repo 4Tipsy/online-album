@@ -30,7 +30,7 @@ function Register({setActive}) {
         <input className='modal-frame-input' type='text' placeholder='nickname' value={nickname} onChange={ (e) => {setNickname(e.currentTarget.value)} }/>
         <input className='modal-frame-input' type='password' placeholder='password' value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
         <input className='modal-frame-input' type='password' placeholder='repeat password' value={repeatPassword} onChange={ (e) => {setRepeatPassword(e.currentTarget.value)} }
-        onKeyPress={(e) => {e.key = 'Enter' && handleRegister()} }/>
+        onKeyPress={(e) => {e.key === 'Enter' && handleRegister()} }/>
       </div>
 
     
