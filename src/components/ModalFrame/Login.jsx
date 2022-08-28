@@ -27,30 +27,32 @@ function Login({setActive}) {
 
       <div>
         <input className='modal-frame-input' type='text' placeholder='e-mail' value={email} onChange={ (e) => {setEmail(e.currentTarget.value)} }/>
-        <input className='modal-frame-input' type='password' placeholder='password' value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
+        <input className='modal-frame-input' type='password' placeholder='password' value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }
+        onKeyPress={(e) => {e.key = 'Enter' && handleLogin()} }/>
       </div>
 
-      <button className='submit-btn' onClick={ () => {handleBtnClick()} }>Log in</button>
+      <button className='submit-btn' onClick={ () => {handleLogin()} }>Log in</button>
 
       <div>
         <div className='after-submit-btn-text __forgot-password'>Forgot your password?</div>
         <div className='after-submit-btn-text'>Do not have an account? <span className='__register' onClick={ () => {setActive('register')} }>Register</span></div>
       </div>
-      <div className='after-submit-btn-text __registration-errors' style={{minHeight: '3%'}}>{error}</div>
+      <div className='after-submit-btn-text __registration-errors' style={{minHeight: '2.7%'}}>{error}</div>
 
       <div className='modal-frame-separator'/>
 
-      <div>
-        <div className='after-submit-btn-text'>To open a <span className='highlighted-text'>demo mode</span> use:</div> 
-        <div className='after-submit-btn-text'>login: demo & password: demo ;)</div>
-      </div>
+      {<div>
+        <div className='after-submit-btn-text'>If you really use my app to store images</div> 
+        <div className='after-submit-btn-text'><span className='highlighted-text'>inform me</span> plz <br/>
+        <span style={{fontFamily: 'Arvo Italic', opacity: '0.45'}}>(menu -> "click here" -> contact me)</span></div>
+      </div>}
     </>
   )
 
 
 
 
-  async function handleBtnClick() { // aka handleRegistration
+  async function handleLogin() {
 
     // check if the entered data is correct
     if (email.length === 0 || password.length === 0) {

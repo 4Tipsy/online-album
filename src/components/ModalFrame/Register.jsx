@@ -29,11 +29,12 @@ function Register({setActive}) {
         <input className='modal-frame-input' type='text' placeholder='e-mail' value={email} onChange={ (e) => {setEmail(e.currentTarget.value)} }/>
         <input className='modal-frame-input' type='text' placeholder='nickname' value={nickname} onChange={ (e) => {setNickname(e.currentTarget.value)} }/>
         <input className='modal-frame-input' type='password' placeholder='password' value={password} onChange={ (e) => {setPassword(e.currentTarget.value)} }/>
-        <input className='modal-frame-input' type='password' placeholder='repeat password' value={repeatPassword} onChange={ (e) => {setRepeatPassword(e.currentTarget.value)} }/>
+        <input className='modal-frame-input' type='password' placeholder='repeat password' value={repeatPassword} onChange={ (e) => {setRepeatPassword(e.currentTarget.value)} }
+        onKeyPress={(e) => {e.key = 'Enter' && handleRegister()} }/>
       </div>
 
     
-      <button className='submit-btn' onClick={ () => {handleBtnClick()} }>Register</button>
+      <button className='submit-btn' onClick={ () => {handleRegister()} }>Register</button>
 
       <div className='after-submit-btn-text'>Already have an account? <span className='__log-in' onClick={ () => {setActive('log-in')} }>Log in</span></div>
       <div className={error === 'user was add successfully' 
@@ -47,7 +48,7 @@ function Register({setActive}) {
 
 
 
-  async function handleBtnClick() { // aka handleRegistration
+  async function handleRegister() {
 
     // check if the entered data is correct
     if (email.length === 0 || nickname.length === 0 || password.length === 0 || repeatPassword.length === 0) {

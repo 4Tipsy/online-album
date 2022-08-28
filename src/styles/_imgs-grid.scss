@@ -4,17 +4,31 @@
   .imgs-grid {
     grid-template-columns: 1fr 1fr 1fr 1fr;
   }
+  .date-separator, .how-tags-work,
+   .imgs-grid-tags-area, .filter-result {
+    grid-column: span 4;
+  }
 }
 @media (max-width: 640px) { // w < 640
   .imgs-grid {
     grid-template-columns: 1fr 1fr 1fr;
   }
+  .date-separator, .how-tags-work,
+  .imgs-grid-tags-area, .filter-result {
+   grid-column: span 3;
+ }
 }
 @media (max-width: 420px) { // w < 420
   .imgs-grid {
     grid-template-columns: 1fr 1fr;
   }
+  .date-separator, .how-tags-work,
+  .imgs-grid-tags-area, .filter-result {
+   grid-column: span 2;
+ }
 }
+
+
 //styles
 .imgs-grid {
   display: grid;
@@ -43,7 +57,7 @@
 }
 
 .date-separator {
-  grid-column: span 4;
+  // grid-column: span n; <-- in the beginning of the file
   height: 10vw;
 
   display: flex;
@@ -267,7 +281,7 @@
 // tags
 
 .how-tags-work {
-  grid-column: span 4;
+  // grid-column: span n; <-- in the beginning of the file
 
   margin-top: 1.1vw;
   padding-left: 1.1vw;
@@ -282,7 +296,7 @@
   }
 }
 .imgs-grid-tags-area {
-  grid-column: span 4;
+  // grid-column: span n; <-- in the beginning of the file
 
   background-color: var(--darker-main-color);
   padding: 1.2vh;
@@ -324,7 +338,7 @@
 
 }  
 .filter-result {
-  grid-column: span 4;
+  // grid-column: span n; <-- in the beginning of the file
 
   padding: 2vw 0 0 3vw;
   margin-bottom: -0.37vw;
