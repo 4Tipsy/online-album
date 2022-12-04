@@ -4,12 +4,14 @@ import bodyParser from 'body-parser'
 import crypto from 'crypto'
 import fileUpload from 'express-fileupload'
 
+
 // modules
 import handleRegistration from './routes/handleRegistration.mjs'
 import handleLogin from './routes/handleLogin.mjs'
 import handleUserEntry from './routes/handleUserEntry.mjs'
 import handleImgUpload from './routes/handleImgUpload.mjs'
 import handleImgDelete from './routes/handleImgDelete.mjs'
+import handleStats from './routes/handleStats.mjs'
 
 
 // some globals
@@ -67,6 +69,8 @@ app.use(express.static("/home/qwerty/my-projects/online-album/build")) // <-- li
 app.get("/", (req, res) => {
   res.sendFile("/home/qwerty/my-projects/online-album/build/index.html") // <-- link to index.html
 })
+// SITE'S STATS
+app.get("/stats", handleStats)
 
 
 // Start the server

@@ -1,0 +1,59 @@
+[
+	{
+		"name": "example1.png",
+		"date": "12/08/2022",
+		"tags": [
+			"#ANDREY-SANSTRAAAAIK"
+		],
+		"src": "users-imgs-folders/imgs__qazwsx/example1.png"
+	},
+	{
+		"name": "example2.jpg",
+		"date": "12/08/2022",
+		"tags": [
+			"#best-ava",
+			"#lol"
+		],
+		"src": "users-imgs-folders/imgs__qazwsx/example2.jpg"
+	},
+	{
+		"name": "example3.jpg",
+		"date": "91/07/2022",
+		"tags": [],
+		"src": "users-imgs-folders/imgs__qazwsx/example3.jpg"
+	},
+	{
+		"name": "example4.webp",
+		"date": "12/08/2022",
+		"tags": [
+			"#this-image",
+			"#has-as",
+			"#many-tags",
+			"#so-they",
+			"#do-not-fit"
+		],
+		"src": "users-imgs-folders/imgs__qazwsx/example4.webp"
+	},
+	{
+		"name": "example5.webp",
+		"date": "12/08/2022",
+		"tags": [
+			"#menacing"
+		],
+		"src": "users-imgs-folders/imgs__qazwsx/example5.webp"
+	},
+	{
+		"name": "monke_lol.webp",
+		"date": "12/08/2022",
+		"tags": [],
+		"src": "users-imgs-folders/imgs__qazwsx/monke_lol.webp"
+	},
+	{
+		"name": "300iq.jpg",
+		"date": "12/08/2022",
+		"tags": [
+			"#4-sezon_nu-nakonecto"
+		],
+		"src": "users-imgs-folders/imgs__qazwsx/300iq.jpg"
+	}
+]

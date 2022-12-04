@@ -22,6 +22,7 @@ function MainMenu ({userInfo, setModalActive, setSettingsActive, tagsActive, set
 
       <div className='main-menu-separator'/>
       <div className='last-section'>
+        <button className='main-menu-btn' onClick={ () => {window.location.href = new URL('stats', window.location.href)} }>Site's stats</button>
         <button className='main-menu-btn click-here-btn' onClick={ () => {setModalActive('other-options')} }>Click here =)</button>
       </div>
       <span className='menu-arrow-section'>
@@ -82,11 +83,9 @@ function BtnsSection({userIsLogged, setSettingsActive, tagsActive, setTagsActive
       style={tagsActive ? {color: "var(--success-color)"} : {}}>Sort by tags</button>
       <button className='main-menu-btn'>_</button>
       <button className='main-menu-btn'>_</button>
-      <button className='main-menu-btn'>_</button>
       </>
       :
       <> {/* if no user */}
-      <button className='main-menu-btn' disabled>_</button>
       <button className='main-menu-btn' disabled>_</button>
       <button className='main-menu-btn' disabled>_</button>
       <button className='main-menu-btn' disabled>_</button>

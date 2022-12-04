@@ -1,1 +1,14 @@
-[]
+[
+	{
+		"nickname": "qwerty",
+		"email": "justmail098765@gmail.com",
+		"password": "qwerty",
+		"user-folder": "imgs__qwerty"
+	},
+	{
+		"nickname": "qazwsx",
+		"email": "45698765@gmail.com",
+		"password": "qazwsx",
+		"user-folder": "imgs__qazwsx"
+	}
+]

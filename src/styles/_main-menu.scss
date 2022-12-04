@@ -13,6 +13,7 @@
   height: 100%;
   width: 130px;
 
+
   display: grid;
   justify-items: center;
   grid-template-rows: auto 4px auto 4px auto 4px auto; // 4px are for separators
@@ -144,6 +145,7 @@ make menu show off animation
 
 .main-menu:hover {
   width: 400px !important;
+  max-width: 78vw !important;
 
   .main-menu-separator, .main-menu-btn, .nickname-section, .logo {
     transform: scale(1);
